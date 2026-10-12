@@ -1,0 +1,200 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000001 = {isa = PBXBuildFile; fileRef = 000000000000000000000011; };
+		000000000000000000000002 = {isa = PBXBuildFile; fileRef = 000000000000000000000012; };
+		000000000000000000000003 = {isa = PBXBuildFile; fileRef = 000000000000000000000013; };
+		000000000000000000000004 = {isa = PBXBuildFile; fileRef = 000000000000000000000014; };
+		000000000000000000000005 = {isa = PBXBuildFile; fileRef = 000000000000000000000015; };
+		000000000000000000000006 = {isa = PBXBuildFile; fileRef = 000000000000000000000016; };
+		000000000000000000000007 = {isa = PBXBuildFile; fileRef = 000000000000000000000017; };
+		000000000000000000000008 = {isa = PBXBuildFile; fileRef = 000000000000000000000018; };
+		000000000000000000000009 = {isa = PBXBuildFile; fileRef = 00000000000000000000001A; };
+		00000000000000000000000A = {isa = PBXBuildFile; fileRef = 00000000000000000000001B; };
+		00000000000000000000000B = {isa = PBXBuildFile; fileRef = 00000000000000000000001C; };
+		00000000000000000000000C = {isa = PBXBuildFile; fileRef = 00000000000000000000001D; };
+		00000000000000000000000D = {isa = PBXBuildFile; fileRef = 00000000000000000000001E; };
+		00000000000000000000000E = {isa = PBXBuildFile; fileRef = 00000000000000000000001F; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000011 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAuditApp.swift; sourceTree = "<group>"; };
+		000000000000000000000012 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditModel.swift; sourceTree = "<group>"; };
+		000000000000000000000013 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		000000000000000000000014 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
+		000000000000000000000015 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		000000000000000000000016 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRParser.swift; sourceTree = "<group>"; };
+		000000000000000000000017 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
+		000000000000000000000018 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditStorage.swift; sourceTree = "<group>"; };
+		000000000000000000000019 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAudit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00000000000000000000001A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHTMLReport.swift; sourceTree = "<group>"; };
+		00000000000000000000001B = {isa = PBXFileReference; lastKnownFileType = text; name = sample.ndjson; path = Tests/MobileAuditCoreTests/Fixtures/sample.ndjson; sourceTree = "<group>"; };
+		00000000000000000000001C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewEngine.swift; sourceTree = "<group>"; };
+		00000000000000000000001D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceJSONReport.swift; sourceTree = "<group>"; };
+		00000000000000000000001E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchAssessment.swift; sourceTree = "<group>"; };
+		00000000000000000000001F = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchAssessmentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000031 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000021 = {
+			isa = PBXGroup;
+			children = (000000000000000000000022, 000000000000000000000023, 00000000000000000000001B, 000000000000000000000024);
+			sourceTree = "<group>";
+		};
+		000000000000000000000022 = {
+			isa = PBXGroup;
+			children = (000000000000000000000011, 000000000000000000000012, 000000000000000000000013, 000000000000000000000014, 00000000000000000000001F);
+			path = MobileAuditApp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000023 = {
+			isa = PBXGroup;
+			children = (000000000000000000000015, 000000000000000000000016, 000000000000000000000017, 000000000000000000000018, 00000000000000000000001A, 00000000000000000000001C, 00000000000000000000001D, 00000000000000000000001E);
+			name = MobileAuditCore;
+			path = Sources/MobileAuditCore;
+			sourceTree = "<group>";
+		};
+		000000000000000000000024 = {
+			isa = PBXGroup;
+			children = (000000000000000000000019);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000041 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000062;
+			buildPhases = (000000000000000000000032, 000000000000000000000031, 000000000000000000000033);
+			buildRules = ();
+			dependencies = ();
+			name = MobileAudit;
+			productName = MobileAudit;
+			productReference = 000000000000000000000019;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000042 = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {000000000000000000000041 = {CreatedOnToolsVersion = 26.5; }; };
+			};
+			buildConfigurationList = 000000000000000000000061;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = 000000000000000000000021;
+			productRefGroup = 000000000000000000000024;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (000000000000000000000041);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000000000000000000000033 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (00000000000000000000000A); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000032 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (000000000000000000000001, 000000000000000000000002, 000000000000000000000003, 000000000000000000000004, 000000000000000000000005, 000000000000000000000006, 000000000000000000000007, 000000000000000000000008, 000000000000000000000009, 00000000000000000000000B, 00000000000000000000000C, 00000000000000000000000D, 00000000000000000000000E);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000051 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		000000000000000000000052 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		000000000000000000000053 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mobile Audit";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mobileaudit.prototype;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		000000000000000000000054 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mobile Audit";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mobileaudit.prototype;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000061 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000051, 000000000000000000000052); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+		000000000000000000000062 = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000053, 000000000000000000000054); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 000000000000000000000042;
+}

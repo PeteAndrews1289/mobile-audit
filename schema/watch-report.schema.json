@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mobile-audit:watch-report:1.0",
+  "title": "Mobile Audit longitudinal change and vulnerability research triage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "tool", "generated_at", "target", "current", "previous", "alerts", "omitted_alert_count", "candidate_triage", "omitted_candidate_count", "comparison", "notes"],
+  "properties": {
+    "schema_version": {"const": "watch-1.0"},
+    "tool": {"type": "object", "required": ["name", "version"], "properties": {"name": {"const": "mobile-audit"}, "version": {"type": "string"}}},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "target": {"type": "object", "required": ["platform", "identifier", "name", "version"], "properties": {"platform": {"const": "ios"}, "identifier": {"type": ["string", "null"]}, "name": {"type": ["string", "null"]}, "version": {"type": ["string", "null"]}}},
+    "current": {"$ref": "#/$defs/reportRef"},
+    "previous": {"oneOf": [{"$ref": "#/$defs/reportRef"}, {"type": "null"}]},
+    "alerts": {"type": "array", "maxItems": 200, "items": {"type": "object", "additionalProperties": false, "required": ["id", "kind", "severity", "summary", "explanation", "next_action", "evidence_ids", "lead_ids"], "properties": {"id": {"type": "string"}, "kind": {"type": "string"}, "severity": {"enum": ["high", "medium", "low", "info"]}, "summary": {"type": "string"}, "explanation": {"type": "string"}, "next_action": {"type": "string"}, "evidence_ids": {"type": "array", "items": {"type": "string"}}, "lead_ids": {"type": "array", "items": {"type": "string"}}}}},
+    "omitted_alert_count": {"type": "integer", "minimum": 0},
+    "candidate_triage": {"type": "array", "maxItems": 30, "items": {"type": "object", "additionalProperties": false, "required": ["id", "lead_id", "title", "priority", "stage", "cve_readiness", "novelty", "rationale", "evidence_ids", "missing_steps"], "properties": {"id": {"type": "string"}, "lead_id": {"type": "string"}, "title": {"type": "string"}, "priority": {"enum": ["high", "medium", "low"]}, "stage": {"enum": ["reported_impact_needs_independent_review", "multiple_clues_no_path_verified", "test_lead_only"]}, "cve_readiness": {"enum": ["independent_review_required", "not_demonstrated"]}, "novelty": {"const": "unassessed"}, "rationale": {"type": "string"}, "attack_scenario": {"type": "string"}, "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "missing_steps": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}},
+    "omitted_candidate_count": {"type": "integer", "minimum": 0},
+    "comparison": {"type": "object", "required": ["newly_observed_lead_count", "no_longer_observed_lead_count", "previous_input_kinds", "current_input_kinds"], "properties": {"newly_observed_lead_count": {"type": "integer", "minimum": 0}, "no_longer_observed_lead_count": {"type": "integer", "minimum": 0}, "previous_input_kinds": {"type": "array", "items": {"type": "string"}}, "current_input_kinds": {"type": "array", "items": {"type": "string"}}}},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "reportRef": {"type": "object", "additionalProperties": false, "required": ["canonical_report_sha256", "generated_at", "version"], "properties": {"canonical_report_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "generated_at": {"type": "string", "format": "date-time"}, "version": {"type": ["string", "null"]}}}
+  }
+}

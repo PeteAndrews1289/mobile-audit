@@ -1,0 +1,20 @@
+{
+  "format": "mobile-audit-ai-response-1.0",
+  "hypotheses": [
+    {
+      "hypothesis": "Check whether the declared URL scheme permits a protected action after sign-out",
+      "priority": "medium",
+      "priority_reason": "The scheme is a documented external entry point that can receive controlled parameters",
+      "supporting_evidence_ids": [
+        "evidence-268bbd257b84fd99"
+      ],
+      "attacker_control": "A benign link and its parameters, opened on a test device",
+      "attack_scenario": "If the link handler uses those parameters for a protected action without checking the current account, a link sender could cause that action when the recipient opens it. Handler behavior is unverified.",
+      "possible_impact": "A protected action could occur without the expected account authorization if the handler fails to recheck it",
+      "test_plan": "Under a test account, record the authorized result; sign out and repeat the same benign link; then try a second test account with an object belonging to the first",
+      "disconfirming_result": "The app rejects the action when signed out and under the second account",
+      "missing_evidence": "Handler behavior, authorization checks, and repeatable test results",
+      "confidence": "low"
+    }
+  ]
+}

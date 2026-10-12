@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobile Audit · com.example.target</title>
+<style>body{font:16px system-ui;margin:2rem auto;padding:0 1rem;max-width:1000px;color:#17283a}h1{overflow-wrap:anywhere}p{line-height:1.5}table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}th,td{border:1px solid #cdd8e1;padding:.6rem;text-align:left;vertical-align:top}td{overflow-wrap:anywhere}code{overflow-wrap:anywhere}.notice{background:#fff3db;border-left:4px solid #c77818;padding:1rem}article{border:1px solid #cdd8e1;border-radius:8px;padding:0 1rem;margin:1rem 0}li{margin:.35rem 0}.tag{text-transform:uppercase;letter-spacing:.05em;font-size:.78rem;font-weight:700;color:#8b4b18}</style>
+</head><body><div class="notice"><strong>Synthetic demonstration:</strong> This app, test result, and grade are invented. Temporary test evidence was checked when this example was generated, but its files are not included. No real vulnerability is reported here.</div><h1>com.example.target</h1>
+<p>Imported 2026-10-10T22:29:06Z · 1 network entries · 1 resource intervals · 1 unique domains</p>
+<div class="notice">The App Privacy Report section shows observed activity. Domain contacts and permission access alone do not establish a vulnerability or reveal request contents. Apple's contact counts cover its reporting window.</div>
+<h2>Security grade</h2>
+<div class="notice"><strong>D · provisional</strong> · 7/7 applicable guided checks completed (100% coverage).</div>
+<p>Rubric 0.1-pilot · App version 1.2.3 · iOS 26.0 · Assessment updated 2026-10-10T22:29:06Z</p>
+<p>Guided check outcomes are recorded by the researcher on a physical iPhone. Mobile Audit does not independently verify actions in another app. A letter grade is provisional and covers the stated test scope.</p>
+<p>Evidence integrity: 7 attached evidence file(s) matched their saved SHA-256 hashes. This check verifies saved bytes, not whether a file proves a security impact.</p>
+
+<p>Why this grade:</p><ul><li>Highest researcher-recorded impact: High. This limits the grade to D.</li></ul>
+<h3>Guided check coverage</h3><table><thead><tr><th>Area</th><th>Check</th><th>Recorded outcome</th><th>Trials</th><th>Verified files</th></tr></thead><tbody><tr><td>Authentication</td><td>Protected content after sign-out</td><td>Expected protection observed</td><td>2</td><td>1</td></tr><tr><td>Authentication</td><td>Data isolation between two accounts</td><td>Expected protection observed</td><td>2</td><td>1</td></tr><tr><td>Links</td><td>Protected link while signed out</td><td>Expected protection observed</td><td>2</td><td>1</td></tr><tr><td>Links</td><td>Link to another account&#39;s content</td><td>Impact reproduced</td><td>2</td><td>1</td></tr><tr><td>Network</td><td>Server identity validation</td><td>Expected protection observed</td><td>2</td><td>1</td></tr><tr><td>Privacy</td><td>Behavior after sensitive permission denial</td><td>Expected protection observed</td><td>2</td><td>1</td></tr><tr><td>Content</td><td>Untrusted file or shared content</td><td>Expected protection observed</td><td>2</td><td>1</td></tr></tbody></table>
+<h2>Potential attack vectors</h2><p>The paths below are conditional explanations of how a risk could be used. The recorded state and evidence show what has actually been tested.</p><article><p class="tag">Researcher-reported impact · High severity</p>
+<h3>Link to another account&#39;s content</h3>
+<p><strong>Entry point:</strong> Universal link or custom URL scheme</p>
+<p><strong>Attacker control:</strong> The link and its content identifier</p>
+<p><strong>Possible attack path:</strong> If a link resolves another account&#39;s item without an ownership check, someone signed in to account B could use account A&#39;s item link to view or change it.</p>
+<p><strong>Prerequisites:</strong> A link containing an identifier for account-owned content and two test accounts.</p>
+<p><strong>Security boundary:</strong> Authorization between accounts through a link handler</p>
+<p><strong>Researcher-reported impact:</strong> Private content crossed the account boundary.</p>
+<p><strong>Observed:</strong> Account B could view account A&#39;s private test item.</p>
+<p><strong>Evidence:</strong> export lines 1; attached file SHA-256 d2f72a272ea3057986ab45589d010a6836630277598e45b66c289f1b13aac9f4</p>
+<p><strong>Next step:</strong> Prepare a private, reproducible report for the developer.</p></article>
+
+
+<h2>Things to review</h2><p>These are leads for further testing, not confirmed security findings.</p><article><h3>Potential tracking domain contacted</h3><p><strong>Observed:</strong> Apple&#39;s report marks api.example.test as potentially used for cross-app or cross-site profiling.</p><p><strong>Why review it:</strong> This may warrant a privacy review. The export does not show identifiers or other data sent to this domain.</p><p><strong>Next check:</strong> Check whether the contact fits the feature you used. Repeat a focused session or inspect authorized network traffic to learn what was sent.</p><p><small>Evidence: export line(s) 1</small></p></article><article><h3>Sensitive resource accessed: location</h3><p><strong>Observed:</strong> The export contains 1 location access interval(s) for this app.</p><p><strong>Why review it:</strong> Unexpected access could expose personal information. This record does not show what the app read, stored, or transmitted.</p><p><strong>Next check:</strong> Compare the timing with actions you took and permission prompts. Repeat the workflow with access allowed and denied if you control the test device.</p><p><small>Evidence: export line(s) 3, 4</small></p></article>
+<h2>Network activity</h2><table><thead><tr><th>Domain</th><th>Reported contacts</th><th>First seen</th><th>Last seen</th><th>Classification</th><th>Evidence</th></tr></thead><tbody><tr><td>api.example.test</td><td>2</td><td>2026-10-01T12:00:00Z</td><td>2026-10-01T12:01:00Z</td><td>Apple: potentially used for cross-app or cross-site profiling</td><td>Line 1</td></tr></tbody></table>
+<h2>Resource access</h2><table><thead><tr><th>Resource</th><th>Started</th><th>Ended</th><th>Status</th><th>Evidence</th></tr></thead><tbody><tr><td>location</td><td>2026-10-01T12:01:30Z</td><td>2026-10-01T12:02:00Z</td><td>Complete</td><td>Lines 3, 4</td></tr></tbody></table>
+
+<h2>Coverage</h2><ul><li>Observed: app-attributed domains and sensitive-resource intervals in this export.</li><li>Unavailable: request contents, app private files, source code, and exploitability.</li></ul>
+<p>Source export SHA-256: <code>73d591b9038780201d4de1e8c76aaf58c8fe218c57bafbada6381fea60c36a81</code>. Only this app's normalized records are included; the original export and other apps are omitted.</p>
+</body></html>

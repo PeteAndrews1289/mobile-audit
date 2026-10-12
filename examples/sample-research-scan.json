@@ -1,0 +1,420 @@
+{
+  "schema_version": "research-1.0",
+  "tool": {
+    "name": "mobile-audit",
+    "version": "0.6.0"
+  },
+  "generated_at": "2026-10-10T18:20:02.331655Z",
+  "target": {
+    "platform": "ios",
+    "identifier": "org.example.synthetic",
+    "name": "Synthetic Example",
+    "version": "1.0"
+  },
+  "environment": {
+    "ios_version": "18.0"
+  },
+  "inputs": [
+    {
+      "id": "source-8e2970d23e015cce",
+      "kind": "static_scan",
+      "sha256": "dc287fe9b8dc81996411ee5f627d547bafae6887829db9b83b4ac73d258eff5a",
+      "hash_scope": "scanner_output",
+      "name": "Package and source checks"
+    },
+    {
+      "id": "source-0cc6ce7ad129d6f4",
+      "kind": "ios_package",
+      "sha256": "e3485ba060f7191857e5285b1e0dd102de786f36529af92b961d0edd23ea1529",
+      "hash_scope": "entire_file",
+      "name": "Supplied iOS package"
+    },
+    {
+      "id": "source-bf98b7063c8b4906",
+      "kind": "app_privacy_report",
+      "sha256": "c5e5552164bae5da8e026fc0e6f63df7b8cee080b2a09d4b9833d8132a50a18f",
+      "hash_scope": "entire_file",
+      "name": "Selected-app App Privacy Report import"
+    },
+    {
+      "id": "source-dfa19f384d291815",
+      "kind": "researcher_supplied_binary",
+      "sha256": "91285ed40f4d5999f487b5acd9c18f2619368c3dfb984d8e49586df0a69c7723",
+      "hash_scope": "entire_file",
+      "name": "Researcher-supplied Mach-O binary"
+    },
+    {
+      "id": "source-eaa70e9fe9960184",
+      "kind": "dependency_inventory",
+      "sha256": "21b46dee9114db2a5b0be78951c7869ae2fe8f668b71f6614c29210991f3b79f",
+      "hash_scope": "parsed_lockfile_inventory",
+      "name": "Parsed dependency lockfiles"
+    }
+  ],
+  "visibility": {
+    "package_binaries": {
+      "not_encrypted": 1,
+      "encrypted": 1,
+      "unknown": 0
+    },
+    "source_files_checked": 2,
+    "source_like_assets_listed": 2,
+    "supplied_binary": {
+      "size": 187,
+      "encryption": "not_encrypted",
+      "architectures": [
+        {
+          "architecture": "arm64",
+          "encryption": "not_encrypted",
+          "linked_libraries": []
+        }
+      ]
+    }
+  },
+  "coverage": [
+    {
+      "area": "package_configuration",
+      "status": "observed",
+      "detail": "Package configuration and entry points were scanned."
+    },
+    {
+      "area": "source_patterns",
+      "status": "observed",
+      "detail": "Developer source was scanned with bounded rules."
+    },
+    {
+      "area": "native_code",
+      "status": "limited",
+      "detail": "1 readable and 1 encrypted package executable(s); readable code was checked only for selected API names."
+    },
+    {
+      "area": "app_activity",
+      "status": "observed",
+      "detail": "Selected-app resource and network metadata imported; request contents and causation remain unavailable."
+    },
+    {
+      "area": "researcher_supplied_native_code",
+      "status": "observed",
+      "detail": "Readable Mach-O was checked for selected API-name references; binary-to-app identity and reachability were not verified."
+    },
+    {
+      "area": "dependency_inventory",
+      "status": "observed",
+      "detail": "1 exact-version lockfile entries found; inclusion in the iOS build is unverified."
+    },
+    {
+      "area": "known_advisories",
+      "status": "unavailable",
+      "detail": "Online advisory lookup was not requested."
+    },
+    {
+      "area": "network_request_contents",
+      "status": "unavailable",
+      "detail": "No proxy or request-content capture was ingested."
+    },
+    {
+      "area": "backend_authorization",
+      "status": "unavailable",
+      "detail": "No independent two-account or backend authorization test was run."
+    },
+    {
+      "area": "native_decompilation",
+      "status": "unavailable",
+      "detail": "Native binary decompilation is not implemented in this release."
+    },
+    {
+      "area": "cross_signal_review",
+      "status": "limited",
+      "detail": "1 paired test lead(s) generated from co-present clues; no data flow or exploit path was verified."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence-eee6b659a6b63c21",
+      "kind": "static_rule_match",
+      "source_id": "source-8e2970d23e015cce",
+      "locator": "App.swift:3",
+      "summary": "Uses SecTrustSetExceptions",
+      "details": {
+        "rule_id": "IOS-CUSTOM-TRUST",
+        "platform": "ios"
+      }
+    },
+    {
+      "id": "evidence-2408744c84b4b684",
+      "kind": "static_rule_match",
+      "source_id": "source-8e2970d23e015cce",
+      "locator": "main.ts:1",
+      "summary": "Dynamic code execution call found; its input and reachability are unverified",
+      "details": {
+        "rule_id": "IOS-WEB-DYNAMIC-CODE",
+        "platform": "ios"
+      }
+    },
+    {
+      "id": "evidence-268bbd257b84fd99",
+      "kind": "declared_entry_point",
+      "source_id": "source-8e2970d23e015cce",
+      "locator": "Payload/Example.app/Info.plist",
+      "summary": "custom url scheme: exampleapp",
+      "details": {}
+    },
+    {
+      "id": "evidence-9b284e0a62408ed3",
+      "kind": "declared_entry_point",
+      "source_id": "source-8e2970d23e015cce",
+      "locator": "Payload/Example.app/Info.plist",
+      "summary": "document type: public.json",
+      "details": {}
+    },
+    {
+      "id": "evidence-ed1ee9665cbe0f37",
+      "kind": "binary_api_reference",
+      "source_id": "source-8e2970d23e015cce",
+      "locator": "Payload/Example.app/Frameworks/Helper.dylib",
+      "summary": "Readable binary references custom server trust",
+      "details": {}
+    },
+    {
+      "id": "evidence-0a10186ebde85d56",
+      "kind": "binary_api_reference",
+      "source_id": "source-8e2970d23e015cce",
+      "locator": "Payload/Example.app/Frameworks/Helper.dylib",
+      "summary": "Readable binary references external url handler",
+      "details": {}
+    },
+    {
+      "id": "evidence-fac29a0f41797f69",
+      "kind": "network_contact",
+      "source_id": "source-bf98b7063c8b4906",
+      "locator": "obs-4a64b43e9841ef4a",
+      "summary": "App-attributed contact with api.example.test",
+      "details": {
+        "domain": "api.example.test",
+        "reported_contacts": 2
+      }
+    },
+    {
+      "id": "evidence-84b118c46789f388",
+      "kind": "network_contact",
+      "source_id": "source-bf98b7063c8b4906",
+      "locator": "obs-f757cfad00e8ea5b",
+      "summary": "App-attributed contact with cdn.example.test",
+      "details": {
+        "domain": "cdn.example.test",
+        "reported_contacts": 1
+      }
+    },
+    {
+      "id": "evidence-8a17c29c0a9aa3d7",
+      "kind": "binary_api_reference",
+      "source_id": "source-dfa19f384d291815",
+      "locator": "researcher-supplied Mach-O",
+      "summary": "Readable binary references custom server trust",
+      "details": {}
+    },
+    {
+      "id": "evidence-7ccac848c62a0760",
+      "kind": "binary_api_reference",
+      "source_id": "source-dfa19f384d291815",
+      "locator": "researcher-supplied Mach-O",
+      "summary": "Readable binary references external url handler",
+      "details": {}
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-6e1b6df43f30dae8",
+      "kind": "custom_server_trust",
+      "title": "Custom server trust handling",
+      "priority": "high",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-8a17c29c0a9aa3d7"
+      ],
+      "attacker_control": "Network endpoint and certificate presented to the app",
+      "possible_impact": "Acceptance of an untrusted server identity",
+      "next_test": "In an authorized test environment, verify whether an invalid server certificate is rejected.",
+      "remediation_if_confirmed": "Use platform trust evaluation and reject untrusted certificates.",
+      "attack_scenario": "If the app accepts an invalid server identity, someone able to present that identity on its network path could impersonate the service. An API reference alone does not show that trust is bypassed."
+    },
+    {
+      "id": "lead-8bb575026afea643",
+      "kind": "custom_server_trust",
+      "title": "Custom server trust handling",
+      "priority": "high",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-ed1ee9665cbe0f37"
+      ],
+      "attacker_control": "Network endpoint and certificate presented to the app",
+      "possible_impact": "Acceptance of an untrusted server identity",
+      "next_test": "In an authorized test environment, verify whether an invalid server certificate is rejected.",
+      "remediation_if_confirmed": "Use platform trust evaluation and reject untrusted certificates.",
+      "attack_scenario": "If the app accepts an invalid server identity, someone able to present that identity on its network path could impersonate the service. An API reference alone does not show that trust is bypassed."
+    },
+    {
+      "id": "lead-0f9a9cd1c528b550",
+      "kind": "external_url_handler",
+      "title": "External URL handler",
+      "priority": "high",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-0a10186ebde85d56"
+      ],
+      "attacker_control": "Parameters supplied through another app or browser",
+      "possible_impact": "Unauthorized app action or access to protected content",
+      "next_test": "Open a controlled link while signed out and under a second test account; compare authorized and unauthorized outcomes.",
+      "remediation_if_confirmed": "Validate every parameter and enforce authorization in the handler.",
+      "attack_scenario": "If an external link parameter reaches a protected app action without authorization, a sender could use a crafted link to invoke that action. An API-name reference does not establish a reachable handler."
+    },
+    {
+      "id": "lead-f0311607ec8549da",
+      "kind": "external_url_handler",
+      "title": "External URL handler",
+      "priority": "high",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-7ccac848c62a0760"
+      ],
+      "attacker_control": "Parameters supplied through another app or browser",
+      "possible_impact": "Unauthorized app action or access to protected content",
+      "next_test": "Open a controlled link while signed out and under a second test account; compare authorized and unauthorized outcomes.",
+      "remediation_if_confirmed": "Validate every parameter and enforce authorization in the handler.",
+      "attack_scenario": "If an external link parameter reaches a protected app action without authorization, a sender could use a crafted link to invoke that action. An API-name reference does not establish a reachable handler."
+    },
+    {
+      "id": "lead-00cceaa56cc3e768",
+      "kind": "IOS-CUSTOM-TRUST",
+      "title": "Custom server trust handling needs review",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "static_lead",
+      "evidence_ids": [
+        "evidence-eee6b659a6b63c21"
+      ],
+      "attacker_control": "A network endpoint or certificate presented to the app in an authorized test setup",
+      "possible_impact": "The app could accept an untrusted server identity if the custom path bypasses validation",
+      "next_test": "Trace the trust callback, then check whether the assessed build rejects an invalid certificate in a controlled environment.",
+      "remediation_if_confirmed": "Review the full trust validation path; do not accept a server certificate without proper validation.",
+      "disconfirming_result": "The invalid certificate is rejected and platform trust validation remains required.",
+      "attack_scenario": "If the custom trust callback accepts an invalid server identity, someone able to present that identity on the app's network path could impersonate the service and observe or alter traffic. Acceptance is unverified."
+    },
+    {
+      "id": "lead-cf51d2e90984731e",
+      "kind": "custom_url_scheme",
+      "title": "Test custom url scheme: exampleapp",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-268bbd257b84fd99"
+      ],
+      "attacker_control": "A link and its parameters",
+      "possible_impact": "Unauthorized app action or protected-content access",
+      "next_test": "Open a controlled link while signed out and as a second test account; check authorization and input handling.",
+      "remediation_if_confirmed": "Validate link input and enforce authorization for every requested action.",
+      "attack_scenario": "If the app acts on parameters from a custom link without checking the current account, a sender could use a link to request an unauthorized action. The handler behavior is untested."
+    },
+    {
+      "id": "lead-f2c0ce91811041df",
+      "kind": "document_type",
+      "title": "Test document type: public.json",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-9b284e0a62408ed3"
+      ],
+      "attacker_control": "A document opened by the user",
+      "possible_impact": "Unexpected file access, parser failure, or unintended app action",
+      "next_test": "Open a benign test document of this type and inspect import validation and file access.",
+      "remediation_if_confirmed": "Validate document structure and restrict imports to required types and access.",
+      "attack_scenario": "If the app imports a file supplied by another party and its parser mishandles that content, opening the file could trigger unintended behavior. No parser flaw is established by the declaration."
+    },
+    {
+      "id": "lead-e2c311f19f1d3f30",
+      "kind": "external_link_web_sink_review",
+      "title": "Trace external links into web code",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-2408744c84b4b684",
+        "evidence-268bbd257b84fd99"
+      ],
+      "attacker_control": "A controlled link and its parameters",
+      "possible_impact": "Script execution or content injection if link data reaches a web sink",
+      "next_test": "Trace the link handler to the bundled web code, then pass a benign marker through a controlled link and observe whether it reaches the sink.",
+      "remediation_if_confirmed": "If a path is confirmed, validate link data and replace unsafe dynamic code or HTML writes.",
+      "disconfirming_result": "The handler does not pass link-controlled data to the sink, or the data is safely handled before rendering or execution.",
+      "attack_scenario": "If a link parameter flows into the bundled dynamic-code or HTML-writing call, a link sender could influence WebView content. The two clues coexist, but no data flow has been traced.",
+      "path_analysis": {
+        "basis": "co_presence_only",
+        "clues": [
+          {
+            "role": "external_link_entry",
+            "evidence_ids": [
+              "evidence-268bbd257b84fd99"
+            ]
+          },
+          {
+            "role": "web_code_sink",
+            "evidence_ids": [
+              "evidence-2408744c84b4b684"
+            ]
+          }
+        ],
+        "missing_link": "No path from a link parameter to the bundled web-code sink has been verified."
+      }
+    },
+    {
+      "id": "lead-a836df7cf7d6c3c4",
+      "kind": "IOS-WEB-DYNAMIC-CODE",
+      "title": "Dynamic JavaScript execution needs input review",
+      "priority": "low",
+      "confidence": "low",
+      "state": "static_lead",
+      "evidence_ids": [
+        "evidence-2408744c84b4b684"
+      ],
+      "attacker_control": "JavaScript input, if a link, message, or network response reaches the call",
+      "possible_impact": "Untrusted input could execute script with the WebView's privileges",
+      "next_test": "Trace the call's argument to its sources; use a benign marker from a controlled source to check whether input reaches execution.",
+      "remediation_if_confirmed": "Avoid executing constructed code. If input can come from a link, message, or network response, validate the path and replace dynamic execution.",
+      "disconfirming_result": "The argument is a fixed trusted string, or controlled untrusted input never reaches the call.",
+      "attack_scenario": "If a link, message, or response controls the string passed to dynamic JavaScript execution, its sender could run script in that WebView context. No input-to-sink path has been shown."
+    }
+  ],
+  "dependencies": [
+    {
+      "ecosystem": "SwiftURL",
+      "name": "https://github.com/example/invented-library.git",
+      "display_name": "invented-library",
+      "version": "1.2.3",
+      "manifest": "Package.resolved",
+      "use_status": "declared_in_lockfile_not_verified_in_binary"
+    }
+  ],
+  "known_advisories": [],
+  "assessment": {
+    "status": "incomplete",
+    "grade": null,
+    "coverage_percent": null,
+    "evidence_strength": "not_assessed",
+    "source": null
+  },
+  "llm_reviews": [],
+  "static_warnings": [
+    "Encrypted iOS executable code was not inspected; load commands and bundled resources remain available",
+    "Signed entitlements could not be read from the IPA"
+  ],
+  "notes": [
+    "Static matches and API references are test leads, not proven vulnerabilities.",
+    "This report does not run the target app, decrypt executable code, or validate backend authorization."
+  ]
+}

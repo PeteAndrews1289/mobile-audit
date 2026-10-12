@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mobile-audit:evidence-report:2.1",
+  "title": "Mobile Audit evidence report 2.1 (also accepts 2.0 imports)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "tool", "generated_at", "mode", "target", "environment", "sessions", "artifacts", "observations", "test_results", "findings", "coverage", "notes"],
+  "properties": {
+    "schema_version": {"enum": ["2.0", "2.1"]},
+    "tool": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {"name": {"const": "mobile-audit"}, "version": {"type": "string"}}
+    },
+    "generated_at": {"type": "string", "format": "date-time"},
+    "mode": {"enum": ["app_privacy_report", "static_scan"]},
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["platform", "identifier", "name", "version"],
+      "properties": {
+        "platform": {"enum": ["ios", "android", "mobile"]},
+        "identifier": {"type": ["string", "null"]},
+        "name": {"type": ["string", "null"]},
+        "version": {"type": ["string", "null"]}
+      }
+    },
+    "environment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["os_version", "device_class", "region", "permissions"],
+      "properties": {
+        "os_version": {"type": ["string", "null"]},
+        "device_class": {"type": ["string", "null"]},
+        "region": {"type": ["string", "null"]},
+        "permissions": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": {"type": "string"}}]}
+      }
+    },
+    "sessions": {"type": "array", "items": {"$ref": "#/$defs/session"}},
+    "artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
+    "observations": {"type": "array", "items": {"$ref": "#/$defs/observation"}},
+    "test_results": {"type": "array", "items": {"$ref": "#/$defs/test_result"}},
+    "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "coverage": {"type": "array", "items": {"$ref": "#/$defs/coverage"}},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "assessment": {"$ref": "#/$defs/assessment"},
+    "attack_vectors": {"type": "array", "items": {"$ref": "#/$defs/attack_vector"}}
+  },
+  "allOf": [
+    {"if": {"properties": {"schema_version": {"const": "2.1"}}},
+     "then": {"required": ["assessment", "attack_vectors"]}}
+  ],
+  "$defs": {
+    "assessment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "grade", "rubric_version", "updated_at", "app_version", "ios_version", "scope_recorded", "completed_checks", "applicable_checks", "coverage_percent", "evidence_strength", "grading_requirements", "checks"],
+      "properties": {
+        "status": {"enum": ["incomplete", "provisional"]},
+        "grade": {"type": ["string", "null"], "enum": ["A", "B", "C", "D", "F", null]},
+        "rubric_version": {"type": "string"},
+        "updated_at": {"type": ["string", "null"], "format": "date-time"},
+        "app_version": {"type": ["string", "null"]},
+        "ios_version": {"type": ["string", "null"]},
+        "scope_recorded": {"type": "boolean"},
+        "completed_checks": {"type": "integer", "minimum": 0},
+        "applicable_checks": {"type": "integer", "minimum": 0},
+        "coverage_percent": {"type": "integer", "minimum": 0, "maximum": 100},
+        "evidence_strength": {"const": "researcher_recorded_not_independently_verified"},
+        "evidence_integrity_status": {"enum": ["no_evidence", "not_checked", "verified", "failed"]},
+        "grading_requirements": {"type": "array", "items": {"type": "string"}},
+        "grade_rationale": {"type": "array", "items": {"type": "string"}},
+        "checks": {"type": "array", "items": {"$ref": "#/$defs/guided_check"}}
+      }
+    },
+    "guided_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "category", "title", "status", "summary", "impact", "severity", "trials", "evidence_line_numbers", "evidence_sha256"],
+      "properties": {
+        "id": {"type": "string"}, "category": {"type": "string"}, "title": {"type": "string"},
+        "status": {"enum": ["notRun", "passed", "concern", "confirmed", "inconclusive", "unavailable", "notApplicable"]},
+        "summary": {"type": "string"}, "impact": {"type": "string"},
+        "severity": {"type": ["string", "null"], "enum": ["low", "medium", "high", "critical", null]},
+        "trials": {"type": "integer", "minimum": 0},
+        "evidence_line_numbers": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+        "evidence_sha256": {"type": "array", "items": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+      }
+    },
+    "attack_vector": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "state", "entry_point", "attacker_control", "prerequisites", "security_boundary", "impact", "observed", "evidence_line_numbers", "evidence_sha256", "next_step", "severity"],
+      "properties": {
+        "id": {"type": "string"}, "title": {"type": "string"},
+        "state": {"enum": ["hypothesis", "tested_unconfirmed", "confirmed"]},
+        "entry_point": {"type": "string"}, "attacker_control": {"type": "string"},
+        "attack_scenario": {"type": "string"},
+        "prerequisites": {"type": "string"}, "security_boundary": {"type": "string"},
+        "impact": {"type": "string"}, "observed": {"type": "string"},
+        "evidence_line_numbers": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+        "evidence_sha256": {"type": "array", "items": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+        "next_step": {"type": "string"},
+        "severity": {"type": ["string", "null"], "enum": ["low", "medium", "high", "critical", null]}
+      }
+    },
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "collection_method", "source_name", "sha256", "sensitivity", "raw_retained", "created_at"],
+      "properties": {
+        "id": {"type": "string"}, "kind": {"type": "string"},
+        "collection_method": {"type": "string"}, "source_name": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "sensitivity": {"type": "string"}, "raw_retained": {"type": "boolean"},
+        "integrity_status": {"enum": ["verified", "unverified"]},
+        "created_at": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "session": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "started_at", "ended_at", "actions", "account_label", "scope"],
+      "properties": {
+        "id": {"type": "string"}, "started_at": {"type": "string", "format": "date-time"},
+        "ended_at": {"type": ["string", "null"], "format": "date-time"},
+        "actions": {"type": "array", "items": {"type": "string"}},
+        "account_label": {"type": ["string", "null"]}, "scope": {"type": ["string", "null"]}
+      }
+    },
+    "observation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "observed_at", "details", "provenance", "session_id"],
+      "properties": {
+        "id": {"type": "string"}, "kind": {"enum": ["resource_access", "network_contact", "static_rule_match"]},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "details": {"type": "object"},
+        "session_id": {"type": ["string", "null"]},
+        "provenance": {
+          "type": "object", "additionalProperties": false,
+          "required": ["artifact_id", "locator", "collector"],
+          "properties": {
+            "artifact_id": {"type": "string"}, "collector": {"type": "string"},
+            "locator": {
+              "oneOf": [
+                {"type": "object", "additionalProperties": false, "required": ["line_numbers"], "properties": {"line_numbers": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 1}}}},
+                {"type": "object", "additionalProperties": false, "required": ["finding_index"], "properties": {"finding_index": {"type": "integer", "minimum": 1}}}
+              ]
+            }
+          }
+        }
+      }
+    },
+    "test_result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "rule_id", "rule_version", "status", "explanation", "evidence_ids", "prerequisites", "tested_conditions"],
+      "properties": {
+        "id": {"type": "string"}, "rule_id": {"type": "string"}, "rule_version": {"type": "string"},
+        "status": {"enum": ["passed", "failed", "inconclusive", "unavailable"]},
+        "explanation": {"type": "string"}, "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "prerequisites": {"type": "array", "items": {"type": "string"}},
+        "tested_conditions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "rule_id", "title", "state", "severity", "confidence", "claim", "impact", "attacker_prerequisites", "evidence_ids", "recommendation", "mappings", "coverage_areas"],
+      "properties": {
+        "id": {"type": "string"}, "rule_id": {"type": "string"}, "title": {"type": "string"},
+        "state": {"enum": ["observation", "security_lead", "confirmed_vulnerability", "known_cve_match", "new_cve_candidate"]},
+        "severity": {"enum": ["critical", "high", "medium", "low", "info"]},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "claim": {"type": "string"}, "impact": {"type": ["string", "null"]},
+        "attacker_prerequisites": {"type": "array", "items": {"type": "string"}},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "recommendation": {"type": "string"},
+        "mappings": {"type": "object", "additionalProperties": {"type": "string"}},
+        "coverage_areas": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "coverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["area", "status", "detail"],
+      "properties": {
+        "area": {"type": "string"}, "status": {"enum": ["observed", "unavailable"]},
+        "detail": {"type": "string"}
+      }
+    }
+  }
+}

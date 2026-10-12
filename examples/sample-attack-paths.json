@@ -1,0 +1,540 @@
+{
+  "schema_version": "research-1.0",
+  "tool": {
+    "name": "mobile-audit",
+    "version": "0.6.0"
+  },
+  "generated_at": "2026-10-10T22:40:47.500126Z",
+  "target": {
+    "platform": "ios",
+    "identifier": "org.example.attackpaths",
+    "name": "Synthetic Attack Paths",
+    "version": "1.0"
+  },
+  "environment": {
+    "ios_version": null
+  },
+  "inputs": [
+    {
+      "id": "source-33d16109a34c74a2",
+      "kind": "static_scan",
+      "sha256": "6107e4d00df022e7dae64b05c6c2e34b3562ac1a2115af1e4e7cd3c66d99fe41",
+      "hash_scope": "scanner_output",
+      "name": "Source checks"
+    },
+    {
+      "id": "source-2fb28a2c2deddad1",
+      "kind": "researcher_supplied_binary",
+      "sha256": "7389f4e12ea52b90181999104b9458790d0ffd9a0327fbf90a857b96ed66f8bd",
+      "hash_scope": "entire_file",
+      "name": "Researcher-supplied Mach-O binary"
+    },
+    {
+      "id": "source-e2ef72254338403f",
+      "kind": "dependency_inventory",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "hash_scope": "parsed_lockfile_inventory",
+      "name": "Parsed dependency lockfiles"
+    }
+  ],
+  "visibility": {
+    "package_binaries": {
+      "not_encrypted": 0,
+      "encrypted": 0,
+      "unknown": 0
+    },
+    "source_files_checked": 3,
+    "source_like_assets_listed": 0,
+    "supplied_binary": {
+      "size": 161,
+      "encryption": "not_encrypted",
+      "architectures": [
+        {
+          "architecture": "arm64",
+          "encryption": "not_encrypted",
+          "linked_libraries": []
+        }
+      ]
+    }
+  },
+  "coverage": [
+    {
+      "area": "package_configuration",
+      "status": "unavailable",
+      "detail": "No package was supplied."
+    },
+    {
+      "area": "source_patterns",
+      "status": "observed",
+      "detail": "Developer source was scanned with bounded rules."
+    },
+    {
+      "area": "native_code",
+      "status": "unavailable",
+      "detail": "0 readable and 0 encrypted package executable(s); readable code was checked only for selected API names."
+    },
+    {
+      "area": "app_activity",
+      "status": "unavailable",
+      "detail": "No iPhone activity export was supplied."
+    },
+    {
+      "area": "researcher_supplied_native_code",
+      "status": "observed",
+      "detail": "Readable Mach-O was checked for selected API-name references; binary-to-app identity and reachability were not verified."
+    },
+    {
+      "area": "dependency_inventory",
+      "status": "limited",
+      "detail": "0 exact-version lockfile entries found; inclusion in the iOS build is unverified."
+    },
+    {
+      "area": "known_advisories",
+      "status": "unavailable",
+      "detail": "Online advisory lookup was not requested."
+    },
+    {
+      "area": "network_request_contents",
+      "status": "unavailable",
+      "detail": "No proxy or request-content capture was ingested."
+    },
+    {
+      "area": "backend_authorization",
+      "status": "unavailable",
+      "detail": "No independent two-account or backend authorization test was run."
+    },
+    {
+      "area": "native_decompilation",
+      "status": "unavailable",
+      "detail": "Native binary decompilation is not implemented in this release."
+    },
+    {
+      "area": "cross_signal_review",
+      "status": "limited",
+      "detail": "5 paired test lead(s) generated from co-present clues; no data flow or exploit path was verified."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence-2e5f7109ae1ac793",
+      "kind": "static_rule_match",
+      "source_id": "source-33d16109a34c74a2",
+      "locator": "Info.plist",
+      "summary": "NSAppTransportSecurity.NSAllowsArbitraryLoads = true",
+      "details": {
+        "rule_id": "IOS-ATS-GLOBAL",
+        "platform": "ios",
+        "severity": "high",
+        "confidence": "high",
+        "masvs": "MASVS-NETWORK-1",
+        "maswe": "MASWE-0026"
+      }
+    },
+    {
+      "id": "evidence-bdbdb01ea1bf21e8",
+      "kind": "static_rule_match",
+      "source_id": "source-33d16109a34c74a2",
+      "locator": "Flow.swift:1",
+      "summary": "password compared to a fixed literal (value redacted)",
+      "details": {
+        "rule_id": "MOBILE-AUTH-LITERAL-CHECK",
+        "platform": "ios",
+        "severity": "medium",
+        "confidence": "low",
+        "masvs": "MASVS-AUTH-1",
+        "maswe": null
+      }
+    },
+    {
+      "id": "evidence-b385a175135176ef",
+      "kind": "static_rule_match",
+      "source_id": "source-33d16109a34c74a2",
+      "locator": "Flow.swift:2",
+      "summary": "URL(string:) contains an HTTP endpoint (destination redacted); no network connection was observed",
+      "details": {
+        "rule_id": "IOS-CLEARTEXT-URL",
+        "platform": "ios",
+        "severity": "medium",
+        "confidence": "low",
+        "masvs": "MASVS-NETWORK-1",
+        "maswe": "MASWE-0026"
+      }
+    },
+    {
+      "id": "evidence-a63658398197d144",
+      "kind": "static_rule_match",
+      "source_id": "source-33d16109a34c74a2",
+      "locator": "Web.js:1",
+      "summary": "Dynamic code execution call found; its input and reachability are unverified",
+      "details": {
+        "rule_id": "IOS-WEB-DYNAMIC-CODE",
+        "platform": "ios",
+        "severity": "low",
+        "confidence": "low",
+        "masvs": "MASVS-PLATFORM-1",
+        "maswe": null
+      }
+    },
+    {
+      "id": "evidence-a1c81097bc57dc5e",
+      "kind": "declared_entry_point",
+      "source_id": "source-33d16109a34c74a2",
+      "locator": "Info.plist",
+      "summary": "custom url scheme: syntheticpaths",
+      "details": {}
+    },
+    {
+      "id": "evidence-a04e9a4234f3488a",
+      "kind": "declared_entry_point",
+      "source_id": "source-33d16109a34c74a2",
+      "locator": "Info.plist",
+      "summary": "document type: public.json",
+      "details": {}
+    },
+    {
+      "id": "evidence-3e971f91c9755a7b",
+      "kind": "binary_api_reference",
+      "source_id": "source-2fb28a2c2deddad1",
+      "locator": "researcher-supplied Mach-O",
+      "summary": "Readable binary references object deserialization",
+      "details": {}
+    },
+    {
+      "id": "evidence-4d972773758b5ed4",
+      "kind": "binary_api_reference",
+      "source_id": "source-2fb28a2c2deddad1",
+      "locator": "researcher-supplied Mach-O",
+      "summary": "Readable binary references webview native bridge",
+      "details": {}
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-a3b32c17642b5e71",
+      "kind": "IOS-ATS-GLOBAL",
+      "title": "App Transport Security disabled globally",
+      "priority": "high",
+      "confidence": "high",
+      "state": "static_lead",
+      "evidence_ids": [
+        "evidence-2e5f7109ae1ac793"
+      ],
+      "attacker_control": "A network path reached by the app, if cleartext traffic occurs",
+      "possible_impact": "Cleartext traffic could expose or alter data when a reachable feature uses HTTP",
+      "next_test": "Confirm this is the release configuration, then exercise network features with a controlled account and identify any HTTP requests and their data sensitivity.",
+      "remediation_if_confirmed": "Use HTTPS and remove the global exception; scope any necessary exception to a specific domain.",
+      "disconfirming_result": "The exception is absent from the release build, or no tested reachable feature sends sensitive cleartext traffic.",
+      "attack_scenario": "If a reachable feature sends sensitive data over HTTP, someone able to observe or alter that network path could read or change the traffic. The report does not show that such a request occurs."
+    },
+    {
+      "id": "lead-db1c28d743b73dfd",
+      "kind": "MOBILE-AUTH-LITERAL-CHECK",
+      "title": "Fixed literal in authentication-related comparison",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "static_lead",
+      "evidence_ids": [
+        "evidence-bdbdb01ea1bf21e8"
+      ],
+      "attacker_control": "An authentication-related input, if a user can reach this comparison",
+      "possible_impact": "A fixed value could bypass access control if the branch grants access and the server does not recheck it",
+      "next_test": "Trace both branches of the comparison; with controlled accounts, check whether the literal grants or only denies access and whether the server enforces authorization.",
+      "remediation_if_confirmed": "Trace the branch to learn whether it grants or denies access; enforce authentication on a trusted server.",
+      "disconfirming_result": "The branch only rejects an input, or server authorization blocks the protected action regardless of the comparison.",
+      "attack_scenario": "If this comparison grants access based on a fixed value and no server check enforces authorization, someone able to submit that value could reach a protected action. The branch direction and server behavior are unknown."
+    },
+    {
+      "id": "lead-aec2839d634befb0",
+      "kind": "IOS-CLEARTEXT-URL",
+      "title": "HTTP URL constructed in iOS source",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "static_lead",
+      "evidence_ids": [
+        "evidence-b385a175135176ef"
+      ],
+      "attacker_control": "A network endpoint or network path, if the feature accepts one",
+      "possible_impact": "Sensitive traffic could be exposed or changed if a reachable request uses cleartext HTTP",
+      "next_test": "Trace the URL into an actual request in a controlled session; record whether ATS blocks it and whether any sensitive data travels over HTTP.",
+      "remediation_if_confirmed": "Trace the URL to a reachable request and check ATS behavior; use HTTPS for network traffic.",
+      "disconfirming_result": "The URL is unused in the assessed build, or the request is blocked before sensitive data is sent.",
+      "attack_scenario": "If the app sends sensitive requests to this HTTP endpoint, someone on the network path could read or alter them. The scanner found a URL construction, not a completed request."
+    },
+    {
+      "id": "lead-1ef5d1a8e64b417f",
+      "kind": "object_deserialization",
+      "title": "Object deserialization",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-3e971f91c9755a7b"
+      ],
+      "attacker_control": "Serialized input delivered through an app entry point",
+      "possible_impact": "Unsafe parsing of attacker-controlled data",
+      "next_test": "Identify the input path and test benign malformed objects or documents in scope.",
+      "remediation_if_confirmed": "Constrain allowed types and validate data before deserialization.",
+      "attack_scenario": "If an app entry point passes untrusted serialized content to this API without safe type and structure checks, its sender could trigger unintended parsing behavior. The input path is unverified."
+    },
+    {
+      "id": "lead-92998d33ed454cbb",
+      "kind": "custom_url_scheme",
+      "title": "Test custom url scheme: syntheticpaths",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-a1c81097bc57dc5e"
+      ],
+      "attacker_control": "A link and its parameters",
+      "possible_impact": "Unauthorized app action or protected-content access",
+      "next_test": "Open a controlled link while signed out and as a second test account; check authorization and input handling.",
+      "remediation_if_confirmed": "Validate link input and enforce authorization for every requested action.",
+      "attack_scenario": "If the app acts on parameters from a custom link without checking the current account, a sender could use a link to request an unauthorized action. The handler behavior is untested."
+    },
+    {
+      "id": "lead-3a199cfe7f8c8c8d",
+      "kind": "document_type",
+      "title": "Test document type: public.json",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-a04e9a4234f3488a"
+      ],
+      "attacker_control": "A document opened by the user",
+      "possible_impact": "Unexpected file access, parser failure, or unintended app action",
+      "next_test": "Open a benign test document of this type and inspect import validation and file access.",
+      "remediation_if_confirmed": "Validate document structure and restrict imports to required types and access.",
+      "attack_scenario": "If the app imports a file supplied by another party and its parser mishandles that content, opening the file could trigger unintended behavior. No parser flaw is established by the declaration."
+    },
+    {
+      "id": "lead-38dae907bc08b5d3",
+      "kind": "http_exception_request_review",
+      "title": "Trace cleartext request through ATS exception",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-2e5f7109ae1ac793",
+        "evidence-b385a175135176ef"
+      ],
+      "attacker_control": "A network path carrying a request from the app",
+      "possible_impact": "Sensitive request data could be exposed or altered if the constructed HTTP URL is used under the global exception",
+      "next_test": "Exercise the feature associated with the URL using a test account; record whether a real HTTP request occurs, whether ATS permits it, and what data class it carries.",
+      "remediation_if_confirmed": "Remove the global exception and use HTTPS for any reachable app traffic.",
+      "disconfirming_result": "The URL is unused or blocked, or the reachable request carries no sensitive data.",
+      "attack_scenario": "If the constructed HTTP URL is used for sensitive traffic under the global ATS exception, someone on the network path could read or alter that traffic. No runtime request or sensitive payload has been observed.",
+      "path_analysis": {
+        "basis": "co_presence_only",
+        "clues": [
+          {
+            "role": "transport_exception",
+            "evidence_ids": [
+              "evidence-2e5f7109ae1ac793"
+            ]
+          },
+          {
+            "role": "cleartext_request_construction",
+            "evidence_ids": [
+              "evidence-b385a175135176ef"
+            ]
+          }
+        ],
+        "missing_link": "No evidence shows the URL is requested at runtime, uses the exception, or carries sensitive data."
+      }
+    },
+    {
+      "id": "lead-43f509496c027414",
+      "kind": "external_link_web_sink_review",
+      "title": "Trace external links into web code",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-a1c81097bc57dc5e",
+        "evidence-a63658398197d144"
+      ],
+      "attacker_control": "A controlled link and its parameters",
+      "possible_impact": "Script execution or content injection if link data reaches a web sink",
+      "next_test": "Trace the link handler to the bundled web code, then pass a benign marker through a controlled link and observe whether it reaches the sink.",
+      "remediation_if_confirmed": "If a path is confirmed, validate link data and replace unsafe dynamic code or HTML writes.",
+      "disconfirming_result": "The handler does not pass link-controlled data to the sink, or the data is safely handled before rendering or execution.",
+      "attack_scenario": "If a link parameter flows into the bundled dynamic-code or HTML-writing call, a link sender could influence WebView content. The two clues coexist, but no data flow has been traced.",
+      "path_analysis": {
+        "basis": "co_presence_only",
+        "clues": [
+          {
+            "role": "external_link_entry",
+            "evidence_ids": [
+              "evidence-a1c81097bc57dc5e"
+            ]
+          },
+          {
+            "role": "web_code_sink",
+            "evidence_ids": [
+              "evidence-a63658398197d144"
+            ]
+          }
+        ],
+        "missing_link": "No path from a link parameter to the bundled web-code sink has been verified."
+      }
+    },
+    {
+      "id": "lead-d47e5ab818decc26",
+      "kind": "external_link_auth_boundary_review",
+      "title": "Trace external links through account checks",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-a1c81097bc57dc5e",
+        "evidence-bdbdb01ea1bf21e8"
+      ],
+      "attacker_control": "A link and its parameters, opened under controlled account states",
+      "possible_impact": "A protected action could be reached if the link handler relies on a fixed client-side comparison without server authorization",
+      "next_test": "Trace the link handler through the authentication branch; compare signed-out and second-account outcomes with benign test links and data you control.",
+      "remediation_if_confirmed": "If a path is confirmed, enforce authentication and object authorization at the protected service or action.",
+      "disconfirming_result": "The link cannot reach the branch, or the protected action is denied by server authorization regardless of the comparison.",
+      "attack_scenario": "If a link reaches a protected action and the app relies on a fixed client-side comparison without a server authorization check, its sender could request an action outside the current account's rights. No such path has been traced.",
+      "path_analysis": {
+        "basis": "co_presence_only",
+        "clues": [
+          {
+            "role": "external_link_entry",
+            "evidence_ids": [
+              "evidence-a1c81097bc57dc5e"
+            ]
+          },
+          {
+            "role": "client_auth_comparison",
+            "evidence_ids": [
+              "evidence-bdbdb01ea1bf21e8"
+            ]
+          }
+        ],
+        "missing_link": "No path from the link handler to this comparison or a protected action has been verified."
+      }
+    },
+    {
+      "id": "lead-6449a3599c861a43",
+      "kind": "document_deserializer_review",
+      "title": "Trace imported documents into a deserializer",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-3e971f91c9755a7b",
+        "evidence-a04e9a4234f3488a"
+      ],
+      "attacker_control": "A benign document opened by the user",
+      "possible_impact": "Unexpected app behavior if document bytes reach an unsafe parser",
+      "next_test": "Trace the document import handler to the deserializer; use a small, benign malformed document in scope and record the result.",
+      "remediation_if_confirmed": "If a path is confirmed, restrict accepted types and validate document structure before parsing.",
+      "disconfirming_result": "The import path never uses this deserializer, or it rejects the test document before unsafe parsing.",
+      "attack_scenario": "If an imported document reaches the deserializer without validation, its sender could trigger unintended parsing behavior when the app opens it. The two clues coexist, but no data flow has been traced.",
+      "path_analysis": {
+        "basis": "co_presence_only",
+        "clues": [
+          {
+            "role": "document_entry",
+            "evidence_ids": [
+              "evidence-a04e9a4234f3488a"
+            ]
+          },
+          {
+            "role": "deserializer_reference",
+            "evidence_ids": [
+              "evidence-3e971f91c9755a7b"
+            ]
+          }
+        ],
+        "missing_link": "No path from the declared document import to the referenced deserializer has been verified."
+      }
+    },
+    {
+      "id": "lead-918842bf9432b0c4",
+      "kind": "web_content_native_bridge_review",
+      "title": "Trace web content into the native bridge",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-4d972773758b5ed4",
+        "evidence-a63658398197d144"
+      ],
+      "attacker_control": "Web content influenced by a controlled page, link, or message",
+      "possible_impact": "Untrusted content could invoke privileged native behavior if it shares a WebView with an exposed bridge",
+      "next_test": "Identify the WebView and allowed origins for both clues; use a benign controlled message to test whether the content can reach a bridge method.",
+      "remediation_if_confirmed": "Restrict bridge methods and origins, and validate every message before native actions.",
+      "disconfirming_result": "The code runs in a different WebView, or the bridge rejects messages from the controlled content.",
+      "attack_scenario": "If untrusted web content reaches a WebView with an exposed native bridge, its sender could invoke a privileged app method. The two code clues have not been linked to one WebView.",
+      "path_analysis": {
+        "basis": "co_presence_only",
+        "clues": [
+          {
+            "role": "web_code_sink",
+            "evidence_ids": [
+              "evidence-a63658398197d144"
+            ]
+          },
+          {
+            "role": "native_bridge_reference",
+            "evidence_ids": [
+              "evidence-4d972773758b5ed4"
+            ]
+          }
+        ],
+        "missing_link": "No evidence shows the web sink and native bridge run in the same WebView or that untrusted content can call a privileged bridge method."
+      }
+    },
+    {
+      "id": "lead-63ec488f56f66452",
+      "kind": "webview_native_bridge",
+      "title": "WebView native bridge",
+      "priority": "medium",
+      "confidence": "low",
+      "state": "hypothesis",
+      "evidence_ids": [
+        "evidence-4d972773758b5ed4"
+      ],
+      "attacker_control": "Potentially untrusted web content or messages",
+      "possible_impact": "Web content invoking privileged native functionality",
+      "next_test": "Identify the allowed origins and bridge methods; test a controlled page or message in scope.",
+      "remediation_if_confirmed": "Restrict bridge exposure to trusted origins and validate message input.",
+      "attack_scenario": "If untrusted WebView content can call a privileged native bridge method, a content sender could ask the app to perform that method's action. Allowed origins and bridge permissions are unknown."
+    },
+    {
+      "id": "lead-63c93f736dfd1005",
+      "kind": "IOS-WEB-DYNAMIC-CODE",
+      "title": "Dynamic JavaScript execution needs input review",
+      "priority": "low",
+      "confidence": "low",
+      "state": "static_lead",
+      "evidence_ids": [
+        "evidence-a63658398197d144"
+      ],
+      "attacker_control": "JavaScript input, if a link, message, or network response reaches the call",
+      "possible_impact": "Untrusted input could execute script with the WebView's privileges",
+      "next_test": "Trace the call's argument to its sources; use a benign marker from a controlled source to check whether input reaches execution.",
+      "remediation_if_confirmed": "Avoid executing constructed code. If input can come from a link, message, or network response, validate the path and replace dynamic execution.",
+      "disconfirming_result": "The argument is a fixed trusted string, or controlled untrusted input never reaches the call.",
+      "attack_scenario": "If a link, message, or response controls the string passed to dynamic JavaScript execution, its sender could run script in that WebView context. No input-to-sink path has been shown."
+    }
+  ],
+  "dependencies": [],
+  "known_advisories": [],
+  "assessment": {
+    "status": "incomplete",
+    "grade": null,
+    "coverage_percent": null,
+    "evidence_strength": "not_assessed",
+    "source": null
+  },
+  "llm_reviews": [],
+  "static_warnings": [],
+  "notes": [
+    "Static matches and API references are test leads, not proven vulnerabilities.",
+    "This report does not run the target app, decrypt executable code, or validate backend authorization."
+  ]
+}

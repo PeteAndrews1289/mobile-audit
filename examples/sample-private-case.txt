@@ -1,0 +1,46 @@
+SYNTHETIC EXAMPLE — the app, case, and evidence are invented.
+
+MOBILE AUDIT — PRIVATE RESEARCH DRAFT
+Case ID: 47BDCDA6-5032-47C4-A231-F5E148B9BD3A/links.account_boundary
+Created: 2026-10-10T22:29:06Z
+State: Ready for independent review
+
+This is a researcher-recorded case, not an assigned CVE or an independently verified vulnerability.
+Review for credentials, account identifiers, and private data before sharing.
+
+APP AND CONDITIONS
+App: Example App
+Bundle ID: com.example.target
+App version: 1.2.3
+iOS version: 26.0
+Test scope: Two test accounts I control
+Check: Link to another account's content
+Account state and prerequisites: Start with test account B signed in.
+
+REPRODUCTION STEPS
+1. Create a private item in test account A.
+2. Open PRIVATE-REPRODUCER-ONLY-TEST-INPUT from test account B.
+
+EXPECTED BEHAVIOR
+Account B is denied access.
+
+OBSERVED BEHAVIOR
+Account B sees account A's invented test item.
+
+ATTACKER CONTROL AND IMPACT
+Attacker control: An account and a link to the test item.
+Possible attack path (conditional): If a link resolves another account's item without an ownership check, someone signed in to account B could use account A's item link to view or change it.
+Impact: Private test content crossed an account boundary.
+Provisional severity: High
+Repeated trials: 2
+
+EVIDENCE
+Verified local file SHA-256: 5a011d55782671db251e1936604cd0aaae4a673c509e6a61df095165f89870bd
+App Privacy Report lines: No export attached
+File contents are not embedded in this draft. Attach redacted evidence separately if needed.
+
+PRIOR REPORTS OR POSSIBLE DUPLICATES CHECKED
+No matching vendor advisory found in this synthetic exercise.
+
+REMAINING BEFORE INDEPENDENT REVIEW
+None

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobile Audit Report</title><style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172235;background:#f5f7fb}
+*{box-sizing:border-box}body{margin:0}header{background:#102a43;color:white;padding:2.5rem max(2rem,calc((100vw - 1050px)/2))}
+h1{margin:.2rem 0;font-size:2rem}header p{margin:.4rem 0;color:#d8e4ee;overflow-wrap:anywhere}
+main{max-width:1050px;margin:auto;padding:2rem}h2{margin:2.2rem 0 1rem}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem}
+.stat{background:white;border-radius:12px;padding:1rem;border-top:4px solid #99a7b8;box-shadow:0 2px 10px #102a4310}.stat strong{display:block;font-size:1.7rem}.stat span{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.stat.high{border-color:#dc4848}.stat.medium{border-color:#df8b22}.stat.low{border-color:#d8bb28}.stat.critical{border-color:#9f2537}
+.finding{background:white;border:1px solid #d9e1e8;border-radius:12px;padding:1.1rem 1.3rem;margin:.8rem 0;box-shadow:0 2px 10px #102a430c}
+.finding-head{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}.finding h3{margin:0;flex:1;min-width:200px}.finding small{color:#617487}
+.badge{border-radius:100px;padding:.25rem .65rem;background:#dce5ec;text-transform:uppercase;font-weight:700;font-size:.7rem;letter-spacing:.04em}
+.badge.high,.badge.critical{background:#ffe0e0;color:#8b1e2a}.badge.medium{background:#fff0d6;color:#85510c}.badge.low{background:#f6efd0;color:#675719}
+.location{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#375a7a;overflow-wrap:anywhere}.meta{color:#607486;font-size:.83rem}
+.panel{background:white;border:1px solid #d9e1e8;border-radius:12px;padding:1rem 1.3rem;overflow-x:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.8rem}li{margin:.35rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #d9e1e8;padding:.55rem .65rem;overflow-wrap:anywhere}th{background:#f4f7fa}.notice{background:#eef5fa;border-left:4px solid #3875a2;padding:.75rem 1rem}
+@media(max-width:650px){main{padding:1rem}.stats{grid-template-columns:repeat(2,1fr)}header{padding:2rem 1rem}}
+</style></head><body><header><h1>Mobile Audit</h1><p>Synthetic IPA fixture (no real app)</p><p>Scanned 2026-10-11T01:54:34.186642+00:00 · IPA scan</p></header>
+<main><div class="stats"><div class="stat critical"><strong>0</strong><span>Critical</span></div><div class="stat high"><strong>0</strong><span>High</span></div><div class="stat medium"><strong>0</strong><span>Medium</span></div><div class="stat low"><strong>0</strong><span>Low</span></div><div class="stat info"><strong>0</strong><span>Info</span></div></div><h2>Package overview</h2><div class="panel"><p class="notice">Static package observations are leads for testing. No A-F grade is assigned from this package alone.</p><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>App</td><td>synthetic-package-analysis.ipa</td></tr><tr><td>Bundle identifier</td><td>org.example.synthetic</td></tr><tr><td>Version / build</td><td>1.0 / Unknown</td></tr><tr><td>Minimum iOS</td><td>Not declared</td></tr><tr><td>Package size</td><td>1,317 bytes</td></tr><tr><td>File count</td><td>5</td></tr><tr><td>SHA-256 of supplied IPA</td><td>e3485ba060f7191857e5285b1e0dd102de786f36529af92b961d0edd23ea1529</td></tr></tbody></table></div><h2>Components and entry points</h2><div class="panel"><p>1 app; 2 declared entry point(s). A declared entry point is not evidence that its handler is vulnerable.</p><h3>Declared bundles</h3><table><thead><tr><th>Kind</th><th>Bundle ID</th><th>Version</th><th>Minimum iOS</th><th>Executable</th><th>Info.plist</th></tr></thead><tbody><tr><td>app</td><td>org.example.synthetic</td><td>1.0</td><td>Unknown</td><td>Example</td><td>Payload/Example.app/Info.plist</td></tr></tbody></table><h3>Entry points to test</h3><table><thead><tr><th>Type</th><th>Value</th><th>Declared in</th></tr></thead><tbody><tr><td>custom_url_scheme</td><td>exampleapp</td><td>Payload/Example.app/Info.plist</td></tr><tr><td>document_type</td><td>public.json</td><td>Payload/Example.app/Info.plist</td></tr></tbody></table></div><h2>Privacy permissions and capabilities</h2><div class="panel"><h3>Usage descriptions</h3><p>These keys request access at runtime; their presence does not mean the user granted it.</p><p>No records in this package.</p><h3>Privacy manifests</h3><p>These are developer declarations, not proof of actual collection or tracking.</p><p>No records in this package.</p><h3>Entitlement keys</h3><p>No records in this package.</p></div><h2>Network configuration</h2><div class="panel"><p>App Transport Security declarations describe allowed transport exceptions. They do not show network traffic.</p><table><thead><tr><th>Bundle</th><th>Global HTTP exception</th><th>Web content exception</th><th>Media exception</th><th>Exception domains</th></tr></thead><tbody><tr><td>Payload/Example.app/Info.plist</td><td>No</td><td>No</td><td>No</td><td>None</td></tr></tbody></table></div><h2>Signing and native binaries</h2><div class="panel"><p>1 readable executable(s), 1 encrypted executable(s), 0 undetermined.</p><p>IPA signature metadata comes from extracted executables; full bundle verification is not performed. PIE and code-signature entries are Mach-O header facts, not proof of exploitability.</p><table><thead><tr><th>Executable or bundle</th><th>Metadata</th><th>Verification</th><th>Team ID</th><th>Authorities</th><th>Note</th></tr></thead><tbody><tr><td>Payload/Example.app/Example</td><td>unavailable</td><td>not_performed</td><td>Unknown</td><td></td><td>codesign did not provide signature metadata Executable only; IPA bundle resources were not verified.</td></tr></tbody></table><h3>Binary visibility</h3><table><thead><tr><th>Binary</th><th>Architectures</th><th>Encryption</th><th>Minimum OS</th><th>SDK</th><th>PIE flag</th><th>Signature command</th><th>Readable API clues</th></tr></thead><tbody><tr><td>Payload/Example.app/Example</td><td>arm64</td><td>encrypted</td><td>Unknown</td><td>Unknown</td><td>no</td><td>no</td><td></td></tr><tr><td>Payload/Example.app/Frameworks/Helper.dylib</td><td>arm64</td><td>not_encrypted</td><td>Unknown</td><td>Unknown</td><td>no</td><td>no</td><td>custom_server_trust, external_url_handler</td></tr></tbody></table><h3>Linked libraries (0)</h3><p>No linked libraries recovered from the inspected Mach-O headers.</p></div><h2>Readable packaged assets</h2><div class="panel"><p>2 source-like or web asset(s) inventoried. Readable assets can be extracted for review; encrypted native code cannot be reconstructed by this scan.</p><table><thead><tr><th>Path</th><th>Size</th></tr></thead><tbody><tr><td>Payload/Example.app/web/main.js</td><td>46 bytes</td></tr><tr><td>Payload/Example.app/web/main.js.map</td><td>86 bytes</td></tr></tbody></table></div><h2>Findings</h2><p class="empty">No findings from the checks that ran.</p>
+<h2>Checks run</h2><div class="panel"><ul><li>Bundled JavaScript and TypeScript source patterns</li><li>Package resource credential patterns</li><li>Readable iOS binary API-name references</li><li>iOS Info.plist and ATS configuration</li><li>iOS Mach-O load commands and encryption state</li><li>iOS executable code-signature metadata (bundle verification unavailable)</li><li>iOS package identity, size, and file inventory</li></ul></div>
+<h2>Scan notes</h2><div class="panel"><ul><li>Encrypted iOS executable code was not inspected; load commands and bundled resources remain available</li><li>Signed entitlements could not be read from the IPA</li></ul></div>
+<h2>Inventory</h2><div class="panel"><pre>{
+  &quot;input_type&quot;: &quot;ipa&quot;,
+  &quot;ios_package_file&quot;: {
+    &quot;name&quot;: &quot;synthetic-package-analysis.ipa&quot;,
+    &quot;format&quot;: &quot;ipa&quot;,
+    &quot;size_bytes&quot;: 1317,
+    &quot;sha256&quot;: &quot;e3485ba060f7191857e5285b1e0dd102de786f36529af92b961d0edd23ea1529&quot;,
+    &quot;file_count&quot;: 5,
+    &quot;uncompressed_bytes&quot;: 1199
+  },
+  &quot;ios_bundles&quot;: [
+    {
+      &quot;location&quot;: &quot;Payload/Example.app/Info.plist&quot;,
+      &quot;kind&quot;: &quot;app&quot;,
+      &quot;bundle_id&quot;: &quot;org.example.synthetic&quot;,
+      &quot;display_name&quot;: null,
+      &quot;version&quot;: &quot;1.0&quot;,
+      &quot;build&quot;: null,
+      &quot;minimum_ios&quot;: null,
+      &quot;executable&quot;: &quot;Example&quot;,
+      &quot;background_modes&quot;: []
+    }
+  ],
+  &quot;ios_privacy_permissions&quot;: [],
+  &quot;ios_entry_points&quot;: [
+    {
+      &quot;kind&quot;: &quot;custom_url_scheme&quot;,
+      &quot;value&quot;: &quot;exampleapp&quot;,
+      &quot;location&quot;: &quot;Payload/Example.app/Info.plist&quot;,
+      &quot;next_test&quot;: &quot;Open a controlled link while signed out and as a second test account; check authorization and input handling.&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;document_type&quot;,
+      &quot;value&quot;: &quot;public.json&quot;,
+      &quot;location&quot;: &quot;Payload/Example.app/Info.plist&quot;,
+      &quot;next_test&quot;: &quot;Open a benign test document of this type and inspect import validation and file access.&quot;
+    }
+  ],
+  &quot;ios_transport_security&quot;: [
+    {
+      &quot;location&quot;: &quot;Payload/Example.app/Info.plist&quot;,
+      &quot;global_arbitrary_loads&quot;: false,
+      &quot;web_arbitrary_loads&quot;: false,
+      &quot;media_arbitrary_loads&quot;: false,
+      &quot;local_networking&quot;: false,
+      &quot;exception_domains&quot;: []
+    }
+  ],
+  &quot;ios_plaintext_code_assets&quot;: [
+    {
+      &quot;location&quot;: &quot;Payload/Example.app/web/main.js&quot;,
+      &quot;size&quot;: 46
+    },
+    {
+      &quot;location&quot;: &quot;Payload/Example.app/web/main.js.map&quot;,
+      &quot;size&quot;: 86
+    }
+  ],
+  &quot;ios_binaries&quot;: [
+    {
+      &quot;format&quot;: &quot;Mach-O&quot;,
+      &quot;size&quot;: 187,
+      &quot;architectures&quot;: [
+        {
+          &quot;architecture&quot;: &quot;arm64&quot;,
+          &quot;encryption&quot;: &quot;encrypted&quot;,
+          &quot;linked_libraries&quot;: [],
+          &quot;pie_flag&quot;: false,
+          &quot;code_signature_command&quot;: false
+        }
+      ],
+      &quot;encryption&quot;: &quot;encrypted&quot;,
+      &quot;location&quot;: &quot;Payload/Example.app/Example&quot;,
+      &quot;api_reference_categories&quot;: []
+    },
+    {
+      &quot;format&quot;: &quot;Mach-O&quot;,
+      &quot;size&quot;: 187,
+      &quot;architectures&quot;: [
+        {
+          &quot;architecture&quot;: &quot;arm64&quot;,
+          &quot;encryption&quot;: &quot;not_encrypted&quot;,
+          &quot;linked_libraries&quot;: [],
+          &quot;pie_flag&quot;: false,
+          &quot;code_signature_command&quot;: false
+        }
+      ],
+      &quot;encryption&quot;: &quot;not_encrypted&quot;,
+      &quot;location&quot;: &quot;Payload/Example.app/Frameworks/Helper.dylib&quot;,
+      &quot;api_reference_categories&quot;: [
+        &quot;custom_server_trust&quot;,
+        &quot;external_url_handler&quot;
+      ]
+    }
+  ],
+  &quot;ios_binary_visibility&quot;: {
+    &quot;not_encrypted&quot;: 1,
+    &quot;encrypted&quot;: 1,
+    &quot;unknown&quot;: 0
+  },
+  &quot;ios_signatures&quot;: [
+    {
+      &quot;location&quot;: &quot;Payload/Example.app/Example&quot;,
+      &quot;metadata_status&quot;: &quot;unavailable&quot;,
+      &quot;verification&quot;: &quot;not_performed&quot;,
+      &quot;note&quot;: &quot;codesign did not provide signature metadata Executable only; IPA bundle resources were not verified.&quot;
+    }
+  ]
+}</pre></div></main></body></html>

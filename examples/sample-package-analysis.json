@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "tool": "mobile-audit 0.3.0",
+  "target": "Synthetic Example App — invented package",
+  "scanned_at": "2026-10-10T04:15:55.913752+00:00",
+  "findings": [],
+  "inventory": {
+    "input_type": "ipa",
+    "ios_bundles": [
+      {
+        "location": "Payload/Example.app/Info.plist",
+        "bundle_id": "org.example.synthetic",
+        "version": "1.0",
+        "executable": "Example"
+      }
+    ],
+    "ios_entry_points": [
+      {
+        "kind": "custom_url_scheme",
+        "value": "exampleapp",
+        "location": "Payload/Example.app/Info.plist",
+        "next_test": "Open a controlled link while signed out and as a second test account; check authorization and input handling."
+      },
+      {
+        "kind": "document_type",
+        "value": "public.json",
+        "location": "Payload/Example.app/Info.plist",
+        "next_test": "Open a benign test document of this type and inspect import validation and file access."
+      }
+    ],
+    "ios_plaintext_code_assets": [
+      {
+        "location": "Payload/Example.app/web/main.js",
+        "size": 46
+      },
+      {
+        "location": "Payload/Example.app/web/main.js.map",
+        "size": 86
+      }
+    ],
+    "ios_binaries": [
+      {
+        "format": "Mach-O",
+        "size": 187,
+        "architectures": [
+          {
+            "architecture": "arm64",
+            "encryption": "encrypted",
+            "linked_libraries": []
+          }
+        ],
+        "encryption": "encrypted",
+        "location": "Payload/Example.app/Example",
+        "api_reference_categories": []
+      },
+      {
+        "format": "Mach-O",
+        "size": 187,
+        "architectures": [
+          {
+            "architecture": "arm64",
+            "encryption": "not_encrypted",
+            "linked_libraries": []
+          }
+        ],
+        "encryption": "not_encrypted",
+        "location": "Payload/Example.app/Frameworks/Helper.dylib",
+        "api_reference_categories": [
+          "custom_server_trust",
+          "external_url_handler"
+        ]
+      }
+    ],
+    "ios_binary_visibility": {
+      "not_encrypted": 1,
+      "encrypted": 1,
+      "unknown": 0
+    }
+  },
+  "coverage": [
+    "Package resource credential patterns",
+    "Readable iOS binary API-name references",
+    "iOS Info.plist and ATS configuration",
+    "iOS Mach-O load commands and encryption state"
+  ],
+  "warnings": [
+    "Encrypted iOS executable code was not inspected; load commands and bundled resources remain available",
+    "Signed entitlements could not be read from the IPA"
+  ]
+}

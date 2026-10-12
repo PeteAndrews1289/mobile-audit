@@ -1,0 +1,487 @@
+{
+  "artifacts" : [
+    {
+      "collection_method" : "user_export_from_ios_settings",
+      "created_at" : null,
+      "id" : "artifact-73d591b903878020",
+      "kind" : "apple_app_privacy_report",
+      "raw_retained" : false,
+      "sensitivity" : "device_activity",
+      "sha256" : "73d591b9038780201d4de1e8c76aaf58c8fe218c57bafbada6381fea60c36a81",
+      "source_name" : "App Privacy Report export"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-10A6662E-B3E5-47B7-B7DA-235CAB304CE7",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "e9e92b06d5b5d94cf7b3349379fd0bb24d2a0f7813e5babbce3c75c6aecd7542",
+      "source_name" : "Private research evidence file"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-7018148E-E103-4DB4-BFCC-0157B91681E6",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "3581ecf30f3a17ab8695d8fc14315fcbb607eb5e9a88b3d0661e2ec485a53c11",
+      "source_name" : "Private research evidence file"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-C2FF691F-3B03-41A7-B2E3-661DBD296FEF",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "239f2d059566a01e6f6ef86712b760aa5247457cea963c8b21c735c8d46235fa",
+      "source_name" : "Private research evidence file"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-BAC971C9-320E-48B0-BC80-DEA78FD97609",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "d2f72a272ea3057986ab45589d010a6836630277598e45b66c289f1b13aac9f4",
+      "source_name" : "Private research evidence file"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-84A55612-0AC6-403D-863A-6C3954609720",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "e3b5895a43e313c09e950cc46fe033838039d1634ffcd6e6a6959b3c13646cf9",
+      "source_name" : "Private research evidence file"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-2B3C0366-2663-4731-B4C2-8336E6062C42",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "580e913f778692cf02e70ccd3dfd200da39dfb20f0e59ffc83a06bf2f2233f14",
+      "source_name" : "Private research evidence file"
+    },
+    {
+      "collection_method" : "user_file_import",
+      "created_at" : "2026-10-10T22:29:06Z",
+      "id" : "artifact-research-AACCF068-A83B-4583-AECB-1F236A74DBEA",
+      "integrity_status" : "verified",
+      "kind" : "research_evidence_file",
+      "raw_retained" : false,
+      "sensitivity" : "research_evidence",
+      "sha256" : "e661116cfd5637fb1b7a4b6c04de5dd98b2f45c26d85a3092e2032c1a1a67685",
+      "source_name" : "Private research evidence file"
+    }
+  ],
+  "assessment" : {
+    "app_version" : "1.2.3",
+    "applicable_checks" : 7,
+    "checks" : [
+      {
+        "category" : "Authentication",
+        "evidence_line_numbers" : [
+
+        ],
+        "evidence_sha256" : [
+          "e9e92b06d5b5d94cf7b3349379fd0bb24d2a0f7813e5babbce3c75c6aecd7542"
+        ],
+        "id" : "auth.signed_out",
+        "impact" : "",
+        "severity" : null,
+        "status" : "passed",
+        "summary" : "Expected protection observed twice.",
+        "title" : "Protected content after sign-out",
+        "trials" : 2
+      },
+      {
+        "category" : "Authentication",
+        "evidence_line_numbers" : [
+
+        ],
+        "evidence_sha256" : [
+          "3581ecf30f3a17ab8695d8fc14315fcbb607eb5e9a88b3d0661e2ec485a53c11"
+        ],
+        "id" : "auth.cross_account",
+        "impact" : "",
+        "severity" : null,
+        "status" : "passed",
+        "summary" : "Expected protection observed twice.",
+        "title" : "Data isolation between two accounts",
+        "trials" : 2
+      },
+      {
+        "category" : "Links",
+        "evidence_line_numbers" : [
+
+        ],
+        "evidence_sha256" : [
+          "239f2d059566a01e6f6ef86712b760aa5247457cea963c8b21c735c8d46235fa"
+        ],
+        "id" : "links.signed_out",
+        "impact" : "",
+        "severity" : null,
+        "status" : "passed",
+        "summary" : "Expected protection observed twice.",
+        "title" : "Protected link while signed out",
+        "trials" : 2
+      },
+      {
+        "category" : "Links",
+        "evidence_line_numbers" : [
+          1
+        ],
+        "evidence_sha256" : [
+          "d2f72a272ea3057986ab45589d010a6836630277598e45b66c289f1b13aac9f4"
+        ],
+        "id" : "links.account_boundary",
+        "impact" : "Private content crossed the account boundary.",
+        "severity" : "high",
+        "status" : "confirmed",
+        "summary" : "Account B could view account A's private test item.",
+        "title" : "Link to another account's content",
+        "trials" : 2
+      },
+      {
+        "category" : "Network",
+        "evidence_line_numbers" : [
+
+        ],
+        "evidence_sha256" : [
+          "e3b5895a43e313c09e950cc46fe033838039d1634ffcd6e6a6959b3c13646cf9"
+        ],
+        "id" : "network.server_identity",
+        "impact" : "",
+        "severity" : null,
+        "status" : "passed",
+        "summary" : "Expected protection observed twice.",
+        "title" : "Server identity validation",
+        "trials" : 2
+      },
+      {
+        "category" : "Privacy",
+        "evidence_line_numbers" : [
+
+        ],
+        "evidence_sha256" : [
+          "580e913f778692cf02e70ccd3dfd200da39dfb20f0e59ffc83a06bf2f2233f14"
+        ],
+        "id" : "privacy.permission_denied",
+        "impact" : "",
+        "severity" : null,
+        "status" : "passed",
+        "summary" : "Expected protection observed twice.",
+        "title" : "Behavior after sensitive permission denial",
+        "trials" : 2
+      },
+      {
+        "category" : "Content",
+        "evidence_line_numbers" : [
+
+        ],
+        "evidence_sha256" : [
+          "e661116cfd5637fb1b7a4b6c04de5dd98b2f45c26d85a3092e2032c1a1a67685"
+        ],
+        "id" : "content.import",
+        "impact" : "",
+        "severity" : null,
+        "status" : "passed",
+        "summary" : "Expected protection observed twice.",
+        "title" : "Untrusted file or shared content",
+        "trials" : 2
+      }
+    ],
+    "completed_checks" : 7,
+    "coverage_percent" : 100,
+    "evidence_integrity_status" : "verified",
+    "evidence_strength" : "researcher_recorded_not_independently_verified",
+    "grade" : "D",
+    "grade_rationale" : [
+      "Highest researcher-recorded impact: High. This limits the grade to D."
+    ],
+    "grading_requirements" : [
+
+    ],
+    "ios_version" : "26.0",
+    "rubric_version" : "0.1-pilot",
+    "scope_recorded" : true,
+    "status" : "provisional",
+    "updated_at" : "2026-10-10T22:29:06Z"
+  },
+  "attack_vectors" : [
+    {
+      "attack_scenario" : "If a link resolves another account's item without an ownership check, someone signed in to account B could use account A's item link to view or change it.",
+      "attacker_control" : "The link and its content identifier",
+      "entry_point" : "Universal link or custom URL scheme",
+      "evidence_line_numbers" : [
+        1
+      ],
+      "evidence_sha256" : [
+        "d2f72a272ea3057986ab45589d010a6836630277598e45b66c289f1b13aac9f4"
+      ],
+      "id" : "links.account_boundary",
+      "impact" : "Private content crossed the account boundary.",
+      "next_step" : "Prepare a private, reproducible report for the developer.",
+      "observed" : "Account B could view account A's private test item.",
+      "prerequisites" : "A link containing an identifier for account-owned content and two test accounts.",
+      "security_boundary" : "Authorization between accounts through a link handler",
+      "severity" : "high",
+      "state" : "confirmed",
+      "title" : "Link to another account's content"
+    }
+  ],
+  "coverage" : [
+    {
+      "area" : "resource_access",
+      "detail" : "Imported app-attributed access intervals; absence of an event is not proof that access never occurred.",
+      "status" : "observed"
+    },
+    {
+      "area" : "network_domains",
+      "detail" : "Imported selected-app domains and Apple's aggregate contact counts.",
+      "status" : "observed"
+    },
+    {
+      "area" : "network_request_contents",
+      "detail" : "The export does not contain request or response contents.",
+      "status" : "unavailable"
+    },
+    {
+      "area" : "app_private_storage",
+      "detail" : "The export does not expose the app's private files or database.",
+      "status" : "unavailable"
+    },
+    {
+      "area" : "source_and_binary",
+      "detail" : "No source project or usable app binary was examined by this import.",
+      "status" : "unavailable"
+    },
+    {
+      "area" : "vulnerability_exploitation",
+      "detail" : "A researcher recorded reproduced impact and attached evidence; independent validation remains pending.",
+      "status" : "observed"
+    },
+    {
+      "area" : "guided_app_checks",
+      "detail" : "Guided checks were recorded by a researcher on a physical iPhone; the tool did not independently observe the target app.",
+      "status" : "observed"
+    }
+  ],
+  "environment" : {
+    "device_class" : null,
+    "os_version" : "26.0",
+    "permissions" : null,
+    "region" : null
+  },
+  "findings" : [
+
+  ],
+  "generated_at" : "2026-10-10T22:29:06Z",
+  "mode" : "app_privacy_report",
+  "notes" : [
+    "Synthetic demonstration: the app, test result, and grade are invented. Temporary evidence files were checked during generation and are not retained in this example.",
+    "App Privacy Report observations alone do not establish a vulnerability or identify transmitted data.",
+    "Network contact counts cover Apple's reporting period, not one test session.",
+    "Other apps, browsing context, and private session notes are omitted.",
+    "Session metadata, when present, is user-supplied context; observations are not attributed to it.",
+    "Guided check outcomes and the provisional grade are researcher-recorded; attached evidence file contents are not in this report.",
+    "Attached evidence hashes were checked against locally retained bytes when available; this does not validate the researcher's interpretation."
+  ],
+  "observations" : [
+    {
+      "details" : {
+        "domain" : "api.example.test",
+        "domain_owner" : null,
+        "domain_type" : 1,
+        "first_seen_at" : "2026-10-01T12:00:00Z",
+        "initiated_type" : "AppInitiated",
+        "last_seen_at" : "2026-10-01T12:01:00Z",
+        "reported_contacts" : 2
+      },
+      "id" : "obs-network-1",
+      "kind" : "network_contact",
+      "observed_at" : "2026-10-01T12:01:00Z",
+      "provenance" : {
+        "artifact_id" : "artifact-73d591b903878020",
+        "collector" : "apple_app_privacy_report",
+        "locator" : {
+          "line_numbers" : [
+            1
+          ]
+        }
+      },
+      "session_id" : null
+    },
+    {
+      "details" : {
+        "category" : "location",
+        "ended_at" : "2026-10-01T12:02:00Z",
+        "interval_status" : "complete",
+        "started_at" : "2026-10-01T12:01:30Z"
+      },
+      "id" : "obs-access-3-4",
+      "kind" : "resource_access",
+      "observed_at" : "2026-10-01T12:01:30Z",
+      "provenance" : {
+        "artifact_id" : "artifact-73d591b903878020",
+        "collector" : "apple_app_privacy_report",
+        "locator" : {
+          "line_numbers" : [
+            3,
+            4
+          ]
+        }
+      },
+      "session_id" : null
+    }
+  ],
+  "schema_version" : "2.1",
+  "sessions" : [
+
+  ],
+  "target" : {
+    "identifier" : "com.example.target",
+    "name" : null,
+    "platform" : "ios",
+    "version" : "1.2.3"
+  },
+  "test_results" : [
+    {
+      "evidence_ids" : [
+
+      ],
+      "explanation" : "Researcher-recorded outcome: Expected protection observed twice.",
+      "id" : "guided-auth.signed_out",
+      "prerequisites" : [
+        "An account with private content and a sign-out action."
+      ],
+      "rule_id" : "auth.signed_out",
+      "rule_version" : "0.1-pilot",
+      "status" : "passed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Expected protection observed"
+      ]
+    },
+    {
+      "evidence_ids" : [
+
+      ],
+      "explanation" : "Researcher-recorded outcome: Expected protection observed twice.",
+      "id" : "guided-auth.cross_account",
+      "prerequisites" : [
+        "Two test accounts and private content belonging to one of them."
+      ],
+      "rule_id" : "auth.cross_account",
+      "rule_version" : "0.1-pilot",
+      "status" : "passed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Expected protection observed"
+      ]
+    },
+    {
+      "evidence_ids" : [
+
+      ],
+      "explanation" : "Researcher-recorded outcome: Expected protection observed twice.",
+      "id" : "guided-links.signed_out",
+      "prerequisites" : [
+        "A universal link or custom link that opens protected app content."
+      ],
+      "rule_id" : "links.signed_out",
+      "rule_version" : "0.1-pilot",
+      "status" : "passed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Expected protection observed"
+      ]
+    },
+    {
+      "evidence_ids" : [
+        "obs-network-1"
+      ],
+      "explanation" : "Researcher-recorded outcome: Account B could view account A's private test item.",
+      "id" : "guided-links.account_boundary",
+      "prerequisites" : [
+        "A link containing an identifier for account-owned content and two test accounts."
+      ],
+      "rule_id" : "links.account_boundary",
+      "rule_version" : "0.1-pilot",
+      "status" : "failed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Impact reproduced"
+      ]
+    },
+    {
+      "evidence_ids" : [
+
+      ],
+      "explanation" : "Researcher-recorded outcome: Expected protection observed twice.",
+      "id" : "guided-network.server_identity",
+      "prerequisites" : [
+        "An authorized test connection and a network capture or controlled test proxy."
+      ],
+      "rule_id" : "network.server_identity",
+      "rule_version" : "0.1-pilot",
+      "status" : "passed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Expected protection observed"
+      ]
+    },
+    {
+      "evidence_ids" : [
+
+      ],
+      "explanation" : "Researcher-recorded outcome: Expected protection observed twice.",
+      "id" : "guided-privacy.permission_denied",
+      "prerequisites" : [
+        "A feature requesting location, camera, microphone, contacts, or photos."
+      ],
+      "rule_id" : "privacy.permission_denied",
+      "rule_version" : "0.1-pilot",
+      "status" : "passed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Expected protection observed"
+      ]
+    },
+    {
+      "evidence_ids" : [
+
+      ],
+      "explanation" : "Researcher-recorded outcome: Expected protection observed twice.",
+      "id" : "guided-content.import",
+      "prerequisites" : [
+        "A document import, share extension, or external content feature."
+      ],
+      "rule_id" : "content.import",
+      "rule_version" : "0.1-pilot",
+      "status" : "passed",
+      "tested_conditions" : [
+        "2 recorded trial(s)",
+        "Status: Expected protection observed"
+      ]
+    }
+  ],
+  "tool" : {
+    "name" : "mobile-audit",
+    "version" : "0.4.1"
+  }
+}

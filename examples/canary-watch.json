@@ -1,0 +1,176 @@
+{
+  "schema_version": "watch-1.0",
+  "tool": {
+    "name": "mobile-audit",
+    "version": "0.5.0"
+  },
+  "generated_at": "2026-10-10T18:38:38.039402Z",
+  "target": {
+    "platform": "ios",
+    "identifier": "org.mobileaudit.baseline.canary",
+    "name": "Baseline Canary",
+    "version": "1.1"
+  },
+  "current": {
+    "canonical_report_sha256": "04fecb7ebcf796f7e9f48c49ac4a7d08f84982a26fd3baa3724ca87688b69a53",
+    "generated_at": "2026-10-10T18:38:38.034190Z",
+    "version": "1.1"
+  },
+  "previous": {
+    "canonical_report_sha256": "b160007f0009c1e9d0d594272b450c4a0ac1ed2613424302807f18a75f545531",
+    "generated_at": "2026-10-10T18:38:35.601600Z",
+    "version": "1.0"
+  },
+  "alerts": [
+    {
+      "id": "alert-c63b354deaa82577",
+      "kind": "new_test_lead",
+      "severity": "high",
+      "summary": "App Transport Security disabled globally",
+      "explanation": "This test lead is newly observed, which does not establish a newly introduced vulnerability.",
+      "next_action": "Trace the matched code or setting to a reachable feature, then reproduce the suspected behavior with controlled inputs.",
+      "evidence_ids": [
+        "evidence-84207402b3db2fa2"
+      ],
+      "lead_ids": [
+        "lead-abe385f44a2201d2"
+      ]
+    },
+    {
+      "id": "alert-cef02918335879f5",
+      "kind": "new_test_lead",
+      "severity": "medium",
+      "summary": "Custom server trust handling needs review",
+      "explanation": "This test lead is newly observed, which does not establish a newly introduced vulnerability.",
+      "next_action": "Trace the matched code or setting to a reachable feature, then reproduce the suspected behavior with controlled inputs.",
+      "evidence_ids": [
+        "evidence-4ac9ecece14f3f88"
+      ],
+      "lead_ids": [
+        "lead-dbfbd73e135f11dd"
+      ]
+    },
+    {
+      "id": "alert-af3f317c44ed9a22",
+      "kind": "new_test_lead",
+      "severity": "medium",
+      "summary": "Possible sensitive value stored in UserDefaults",
+      "explanation": "This test lead is newly observed, which does not establish a newly introduced vulnerability.",
+      "next_action": "Trace the matched code or setting to a reachable feature, then reproduce the suspected behavior with controlled inputs.",
+      "evidence_ids": [
+        "evidence-db89ef1fee6f3cd0"
+      ],
+      "lead_ids": [
+        "lead-e750cb4390b5bca3"
+      ]
+    },
+    {
+      "id": "alert-62b30f47f6a19152",
+      "kind": "app_version_changed",
+      "severity": "info",
+      "summary": "App version changed: 1.0 → 1.1",
+      "explanation": "A version change can explain new or missing observations; affected versions need separate verification.",
+      "next_action": "Record the exact builds and repeat candidate tests on both versions where possible.",
+      "evidence_ids": [],
+      "lead_ids": []
+    }
+  ],
+  "omitted_alert_count": 0,
+  "candidate_triage": [
+    {
+      "id": "candidate-20dd276a8ab18878",
+      "lead_id": "lead-abe385f44a2201d2",
+      "title": "App Transport Security disabled globally",
+      "priority": "high",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-84207402b3db2fa2"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a reachable feature sends sensitive data over HTTP, someone able to observe or alter that network path could read or change the traffic. The report does not show that such a request occurs."
+    },
+    {
+      "id": "candidate-2cb5f873ff9844f0",
+      "lead_id": "lead-dbfbd73e135f11dd",
+      "title": "Custom server trust handling needs review",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-4ac9ecece14f3f88"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the custom trust callback accepts an invalid server identity, someone able to present that identity on the app's network path could impersonate the service and observe or alter traffic. Acceptance is unverified."
+    },
+    {
+      "id": "candidate-d8977d8a2607aa6a",
+      "lead_id": "lead-e750cb4390b5bca3",
+      "title": "Possible sensitive value stored in UserDefaults",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-db89ef1fee6f3cd0"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a real secret is written to the matched preferences key, someone who gains access to that app data through a separately established path could read it. The value and access path need confirmation."
+    },
+    {
+      "id": "candidate-2c878aaf341a5613",
+      "lead_id": "lead-4ebb6bba43ad7d25",
+      "title": "Test custom url scheme: mobileauditcanary",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-bfc61f2a00968c59"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app acts on parameters from a custom link without checking the current account, a sender could use a link to request an unauthorized action. The handler behavior is untested."
+    }
+  ],
+  "omitted_candidate_count": 0,
+  "comparison": {
+    "newly_observed_lead_count": 3,
+    "no_longer_observed_lead_count": 0,
+    "previous_input_kinds": [
+      "dependency_inventory",
+      "static_scan"
+    ],
+    "current_input_kinds": [
+      "dependency_inventory",
+      "static_scan"
+    ]
+  },
+  "notes": [
+    "Alerts are changes in evidence between two researcher-supplied snapshots, not intrusion detections.",
+    "App Privacy Report describes a rolling seven-day window; newly observed domains do not prove malicious activity.",
+    "A lead no longer observed is not a verified fix, especially when scan coverage or app version changed.",
+    "Candidate triage ranks missing research steps; it does not estimate CVE probability or assign an ID."
+  ]
+}

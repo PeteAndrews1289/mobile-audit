@@ -1,0 +1,267 @@
+{
+  "schema_version": "watch-1.0",
+  "tool": {
+    "name": "mobile-audit",
+    "version": "0.6.0"
+  },
+  "generated_at": "2026-10-10T22:40:57.170678Z",
+  "target": {
+    "platform": "ios",
+    "identifier": "org.example.synthetic",
+    "name": "Synthetic Example",
+    "version": "1.0"
+  },
+  "current": {
+    "canonical_report_sha256": "42dabb8f332f5e9df69bb97076423519148e98f63b99d16a23363248e42f237d",
+    "generated_at": "2026-10-10T18:20:02.331655Z",
+    "version": "1.0"
+  },
+  "previous": {
+    "canonical_report_sha256": "48de3974e60fd305f861a585f309999328cbac36aae386a1d8fa4e65e1315a95",
+    "generated_at": "2026-10-10T18:20:02.290283Z",
+    "version": "1.0"
+  },
+  "alerts": [
+    {
+      "id": "alert-42e7b4820d38ec20",
+      "kind": "new_test_lead",
+      "severity": "medium",
+      "summary": "Trace external links into web code",
+      "explanation": "This test lead is newly observed, which does not establish a newly introduced vulnerability.",
+      "next_action": "Trace the link handler to the bundled web code, then pass a benign marker through a controlled link and observe whether it reaches the sink.",
+      "evidence_ids": [
+        "evidence-2408744c84b4b684",
+        "evidence-268bbd257b84fd99"
+      ],
+      "lead_ids": [
+        "lead-e2c311f19f1d3f30"
+      ]
+    },
+    {
+      "id": "alert-5e745ea010be2a1c",
+      "kind": "new_network_domain",
+      "severity": "low",
+      "summary": "Newly observed network domain: cdn.example.test",
+      "explanation": "App Privacy Report covers a rolling activity window; a new contact is not evidence of intrusion or causation.",
+      "next_action": "Check whether the domain is expected for the app version and actions performed, then repeat the observation.",
+      "evidence_ids": [
+        "evidence-84b118c46789f388"
+      ],
+      "lead_ids": []
+    },
+    {
+      "id": "alert-181cae04bae983b1",
+      "kind": "new_test_lead",
+      "severity": "low",
+      "summary": "Dynamic JavaScript execution needs input review",
+      "explanation": "This test lead is newly observed, which does not establish a newly introduced vulnerability.",
+      "next_action": "Trace the call's argument to its sources; use a benign marker from a controlled source to check whether input reaches execution.",
+      "evidence_ids": [
+        "evidence-2408744c84b4b684"
+      ],
+      "lead_ids": [
+        "lead-a836df7cf7d6c3c4"
+      ]
+    }
+  ],
+  "omitted_alert_count": 0,
+  "candidate_triage": [
+    {
+      "id": "candidate-2b090d86d3e21bd3",
+      "lead_id": "lead-e2c311f19f1d3f30",
+      "title": "Trace external links into web code",
+      "priority": "medium",
+      "stage": "multiple_clues_no_path_verified",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "More than one clue points to a testable path; no data flow or security impact has been demonstrated.",
+      "evidence_ids": [
+        "evidence-2408744c84b4b684",
+        "evidence-268bbd257b84fd99"
+      ],
+      "missing_steps": [
+        "Verify the missing connection: No path from a link parameter to the bundled web-code sink has been verified.",
+        "Reproduce a security impact under controlled conditions.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a link parameter flows into the bundled dynamic-code or HTML-writing call, a link sender could influence WebView content. The two clues coexist, but no data flow has been traced."
+    },
+    {
+      "id": "candidate-4179ae0beb1eeb09",
+      "lead_id": "lead-8bb575026afea643",
+      "title": "Custom server trust handling",
+      "priority": "high",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-ed1ee9665cbe0f37"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app accepts an invalid server identity, someone able to present that identity on its network path could impersonate the service. An API reference alone does not show that trust is bypassed."
+    },
+    {
+      "id": "candidate-59bede53dec81ca0",
+      "lead_id": "lead-6e1b6df43f30dae8",
+      "title": "Custom server trust handling",
+      "priority": "high",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-8a17c29c0a9aa3d7"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app accepts an invalid server identity, someone able to present that identity on its network path could impersonate the service. An API reference alone does not show that trust is bypassed."
+    },
+    {
+      "id": "candidate-0d9dc33dfbc1da63",
+      "lead_id": "lead-f0311607ec8549da",
+      "title": "External URL handler",
+      "priority": "high",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-7ccac848c62a0760"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If an external link parameter reaches a protected app action without authorization, a sender could use a crafted link to invoke that action. An API-name reference does not establish a reachable handler."
+    },
+    {
+      "id": "candidate-7d7c28109a3c788b",
+      "lead_id": "lead-0f9a9cd1c528b550",
+      "title": "External URL handler",
+      "priority": "high",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-0a10186ebde85d56"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If an external link parameter reaches a protected app action without authorization, a sender could use a crafted link to invoke that action. An API-name reference does not establish a reachable handler."
+    },
+    {
+      "id": "candidate-859f286acfce9cfb",
+      "lead_id": "lead-00cceaa56cc3e768",
+      "title": "Custom server trust handling needs review",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-eee6b659a6b63c21"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the custom trust callback accepts an invalid server identity, someone able to present that identity on the app's network path could impersonate the service and observe or alter traffic. Acceptance is unverified."
+    },
+    {
+      "id": "candidate-4c56138761b66cf5",
+      "lead_id": "lead-cf51d2e90984731e",
+      "title": "Test custom url scheme: exampleapp",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-268bbd257b84fd99"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app acts on parameters from a custom link without checking the current account, a sender could use a link to request an unauthorized action. The handler behavior is untested."
+    },
+    {
+      "id": "candidate-d61a90e85cf44bd2",
+      "lead_id": "lead-f2c0ce91811041df",
+      "title": "Test document type: public.json",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-9b284e0a62408ed3"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app imports a file supplied by another party and its parser mishandles that content, opening the file could trigger unintended behavior. No parser flaw is established by the declaration."
+    },
+    {
+      "id": "candidate-77f39fdbcad8d652",
+      "lead_id": "lead-a836df7cf7d6c3c4",
+      "title": "Dynamic JavaScript execution needs input review",
+      "priority": "low",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-2408744c84b4b684"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a link, message, or response controls the string passed to dynamic JavaScript execution, its sender could run script in that WebView context. No input-to-sink path has been shown."
+    }
+  ],
+  "omitted_candidate_count": 0,
+  "comparison": {
+    "newly_observed_lead_count": 2,
+    "no_longer_observed_lead_count": 0,
+    "previous_input_kinds": [
+      "app_privacy_report",
+      "dependency_inventory",
+      "ios_package",
+      "researcher_supplied_binary",
+      "static_scan"
+    ],
+    "current_input_kinds": [
+      "app_privacy_report",
+      "dependency_inventory",
+      "ios_package",
+      "researcher_supplied_binary",
+      "static_scan"
+    ]
+  },
+  "notes": [
+    "Alerts are changes in evidence between two researcher-supplied snapshots, not intrusion detections.",
+    "App Privacy Report describes a rolling seven-day window; newly observed domains do not prove malicious activity.",
+    "A lead no longer observed is not a verified fix, especially when scan coverage or app version changed.",
+    "Candidate triage ranks missing research steps; it does not estimate CVE probability or assign an ID."
+  ]
+}

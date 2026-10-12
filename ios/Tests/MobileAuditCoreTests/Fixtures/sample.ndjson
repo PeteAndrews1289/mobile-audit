@@ -1,0 +1,5 @@
+{"type":"networkActivity","bundleID":"com.example.target","domain":"api.example.test","firstTimeStamp":"2026-10-01T12:00:00Z","timeStamp":"2026-10-01T12:01:00Z","hits":2,"domainType":1,"initiatedType":"AppInitiated","context":"private-page","domainClassification":1,"contextVerificationType":0}
+{"type":"networkActivity","bundleID":"com.example.other","domain":"private.other.test","firstTimeStamp":"2026-10-01T12:00:00Z","timeStamp":"2026-10-01T12:00:01Z","hits":1}
+{"type":"access","accessor":{"identifier":"com.example.target","identifierType":"bundleID"},"category":"location","identifier":"interval-1","kind":"intervalEnd","timeStamp":"2026-10-01T12:02:00Z"}
+{"type":"access","accessor":{"identifier":"com.example.target","identifierType":"bundleID"},"category":"location","identifier":"interval-1","kind":"intervalBegin","timeStamp":"2026-10-01T12:01:30Z"}
+{"type":"access","accessor":{"identifier":"com.example.other","identifierType":"bundleID"},"category":"contacts","identifier":"interval-2","kind":"intervalBegin","timeStamp":"2026-10-01T12:03:00Z"}

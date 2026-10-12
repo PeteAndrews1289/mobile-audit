@@ -1,0 +1,790 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-10T21:38:14.330355+00:00",
+  "method": "Source-only selected cases; no app execution or vulnerability confirmation",
+  "apps": [
+    {
+      "id": "canary-fixed",
+      "label": "Baseline Canary 1.0",
+      "origin": "local",
+      "commit": null,
+      "status": "ready",
+      "source_files_checked": 4,
+      "finding_count": 0,
+      "entry_point_count": 1,
+      "warnings": []
+    },
+    {
+      "id": "canary-vulnerable",
+      "label": "Baseline Canary 1.1",
+      "origin": "local",
+      "commit": null,
+      "status": "ready",
+      "source_files_checked": 4,
+      "finding_count": 3,
+      "entry_point_count": 1,
+      "warnings": []
+    },
+    {
+      "id": "swift-clean",
+      "label": "Swift clean source control",
+      "origin": "local",
+      "commit": null,
+      "status": "ready",
+      "source_files_checked": 2,
+      "finding_count": 0,
+      "entry_point_count": 0,
+      "warnings": []
+    },
+    {
+      "id": "flutter-clean",
+      "label": "Flutter clean source control",
+      "origin": "local",
+      "commit": null,
+      "status": "ready",
+      "source_files_checked": 1,
+      "finding_count": 0,
+      "entry_point_count": 0,
+      "warnings": []
+    },
+    {
+      "id": "dvia-v2",
+      "label": "DVIA v2",
+      "origin": "upstream",
+      "commit": "96466ab85569dbcd37c69b2d15d22ff666f57031",
+      "status": "ready",
+      "source_files_checked": 284,
+      "finding_count": 11,
+      "entry_point_count": 2,
+      "warnings": []
+    },
+    {
+      "id": "igoat-swift",
+      "label": "OWASP iGoat-Swift",
+      "origin": "upstream",
+      "commit": "8c8a8ed6051279f06098f72d6d5aeeb65f8905f2",
+      "status": "ready",
+      "source_files_checked": 297,
+      "finding_count": 6,
+      "entry_point_count": 1,
+      "warnings": []
+    },
+    {
+      "id": "ibugbazaar",
+      "label": "iBugBazaar",
+      "origin": "upstream",
+      "commit": "62f95c0ee1a857899b1f019635bbbaaad4becef4",
+      "status": "ready",
+      "source_files_checked": 85,
+      "finding_count": 13,
+      "entry_point_count": 2,
+      "warnings": []
+    },
+    {
+      "id": "dvfa",
+      "label": "DVFA FinTech",
+      "origin": "upstream",
+      "commit": "bd291ed010cd362abe80204aae59a04335cfc756",
+      "status": "ready",
+      "source_files_checked": 10,
+      "finding_count": 5,
+      "entry_point_count": 0,
+      "warnings": []
+    },
+    {
+      "id": "dvma",
+      "label": "DVMA",
+      "origin": "upstream",
+      "commit": "c03ca9f0c303cd3f68b6b24e58048e94a0801216",
+      "status": "ready",
+      "source_files_checked": 464,
+      "finding_count": 23,
+      "entry_point_count": 1,
+      "warnings": []
+    },
+    {
+      "id": "ovia",
+      "label": "Oversecured Vulnerable iOS App",
+      "origin": "upstream",
+      "commit": "859d862ddd50c606b0cf12b5df2bc5ea95499dfa",
+      "status": "ready",
+      "source_files_checked": 16,
+      "finding_count": 5,
+      "entry_point_count": 1,
+      "warnings": []
+    }
+  ],
+  "cases": [
+    {
+      "id": "CB-01-F",
+      "app": "canary-fixed",
+      "title": "Corrected ATS control",
+      "expect": "absent",
+      "rule": "IOS-ATS-GLOBAL",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "CB-02-F",
+      "app": "canary-fixed",
+      "title": "Corrected storage control",
+      "expect": "absent",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "CB-03-F",
+      "app": "canary-fixed",
+      "title": "Corrected trust control",
+      "expect": "absent",
+      "rule": "IOS-CUSTOM-TRUST",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "CB-01",
+      "app": "canary-vulnerable",
+      "title": "Global ATS exception",
+      "expect": "present",
+      "rule": "IOS-ATS-GLOBAL",
+      "path": "Info.plist",
+      "reason": null,
+      "locations": [
+        "Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "CB-02",
+      "app": "canary-vulnerable",
+      "title": "Token in UserDefaults",
+      "expect": "present",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": "CanaryView.swift",
+      "reason": null,
+      "locations": [
+        "CanaryView.swift:47"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "CB-03",
+      "app": "canary-vulnerable",
+      "title": "Custom trust acceptance",
+      "expect": "present",
+      "rule": "IOS-CUSTOM-TRUST",
+      "path": "TrustProbe.swift",
+      "reason": null,
+      "locations": [
+        "TrustProbe.swift:13"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "CB-04",
+      "app": "canary-vulnerable",
+      "title": "Incoming link accesses another account's note",
+      "expect": "manual",
+      "rule": null,
+      "path": "CanaryView.swift",
+      "reason": "The URL scheme is visible statically; missing object authorization needs a controlled device test.",
+      "locations": [],
+      "status": "manual_pending"
+    },
+    {
+      "id": "SC-01",
+      "app": "swift-clean",
+      "title": "Dynamic password comparison and comment controls",
+      "expect": "absent",
+      "rule": "MOBILE-AUTH-LITERAL-CHECK",
+      "path": "clean_app.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "SC-02",
+      "app": "swift-clean",
+      "title": "Benign theme preference",
+      "expect": "absent",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": "clean_app.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "SC-03",
+      "app": "swift-clean",
+      "title": "Benign and placeholder plist values",
+      "expect": "absent",
+      "rule": "MOBILE-HARDCODED-SECRET",
+      "path": "config.plist",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "SC-04",
+      "app": "swift-clean",
+      "title": "Commented key and benign UI label",
+      "expect": "absent",
+      "rule": "IOS-STATIC-CRYPTO-KEY",
+      "path": "clean_app.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "SC-05",
+      "app": "swift-clean",
+      "title": "HTTPS, loopback, and commented HTTP controls",
+      "expect": "absent",
+      "rule": "IOS-CLEARTEXT-URL",
+      "path": "clean_app.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "SC-06",
+      "app": "swift-clean",
+      "title": "IV description is not a fixed IV",
+      "expect": "absent",
+      "rule": "IOS-STATIC-CRYPTO-IV",
+      "path": "clean_app.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "FC-01",
+      "app": "flutter-clean",
+      "title": "Secure storage control",
+      "expect": "absent",
+      "rule": "MOBILE-FLUTTER-PREFS-SENSITIVE",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "FC-02",
+      "app": "flutter-clean",
+      "title": "HTTPS control",
+      "expect": "absent",
+      "rule": "MOBILE-FLUTTER-CLEARTEXT-URL",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "FC-03",
+      "app": "flutter-clean",
+      "title": "No embedded crypto key control",
+      "expect": "absent",
+      "rule": "MOBILE-FLUTTER-STATIC-CRYPTO-KEY",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "FC-04",
+      "app": "flutter-clean",
+      "title": "Nonsensitive log control",
+      "expect": "absent",
+      "rule": "MOBILE-FLUTTER-SENSITIVE-LOG",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "FC-05",
+      "app": "flutter-clean",
+      "title": "Commented AES-ECB control",
+      "expect": "absent",
+      "rule": "MOBILE-FLUTTER-WEAK-CRYPTO",
+      "path": null,
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "DVIA-01",
+      "app": "dvia-v2",
+      "title": "Global ATS exception",
+      "expect": "present",
+      "rule": "IOS-ATS-GLOBAL",
+      "path": "Info.plist",
+      "reason": null,
+      "locations": [
+        "Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DVIA-02",
+      "app": "dvia-v2",
+      "title": "Custom URLSession trust path",
+      "expect": "present",
+      "rule": "IOS-CUSTOM-TRUST",
+      "path": "Vulnerabilities/Transport Layer Protection/Controller/TransportLayerProtectionViewController.swift",
+      "reason": null,
+      "locations": [
+        "Vulnerabilities/Transport Layer Protection/Controller/TransportLayerProtectionViewController.swift:186",
+        "Vulnerabilities/Transport Layer Protection/Controller/TransportLayerProtectionViewController.swift:204"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DVIA-03",
+      "app": "dvia-v2",
+      "title": "Fixed literal in local login comparison",
+      "expect": "present",
+      "rule": "MOBILE-AUTH-LITERAL-CHECK",
+      "path": "Vulnerabilities/Application Patching/Controller/ApplicationPatchingDetailsViewController.swift",
+      "reason": null,
+      "locations": [
+        "Vulnerabilities/Application Patching/Controller/ApplicationPatchingDetailsViewController.swift:38"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DVIA-04",
+      "app": "dvia-v2",
+      "title": "Commented-out MD5 must not be a finding",
+      "expect": "absent",
+      "rule": "IOS-WEAK-CRYPTO",
+      "path": "Vendor/RNCryptor/RNOpenSSLCryptor.m",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "IG-01",
+      "app": "igoat-swift",
+      "title": "Global ATS exception",
+      "expect": "present",
+      "rule": "IOS-ATS-GLOBAL",
+      "path": "Info.plist",
+      "reason": null,
+      "locations": [
+        "Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IG-02",
+      "app": "igoat-swift",
+      "title": "Embedded exercise password",
+      "expect": "present",
+      "rule": "MOBILE-HARDCODED-SECRET",
+      "path": "Source/Exercises/Key Management/Hard Coded Keys/BrokenCryptographyExerciseVC.swift",
+      "reason": null,
+      "locations": [
+        "Source/Exercises/Key Management/Hard Coded Keys/BrokenCryptographyExerciseVC.swift:32"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IG-03",
+      "app": "igoat-swift",
+      "title": "PIN stored in UserDefaults",
+      "expect": "present",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": "Source/Exercises/InsecureLocalDataStorage/NSUserDefaults/NSUserDefaultsStorageExerciseVC.swift",
+      "reason": null,
+      "locations": [
+        "Source/Exercises/InsecureLocalDataStorage/NSUserDefaults/NSUserDefaultsStorageExerciseVC.swift:13"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IG-04",
+      "app": "igoat-swift",
+      "title": "Rejected root password is not a confirmed credential",
+      "expect": "absent",
+      "rule": "MOBILE-HARDCODED-SECRET",
+      "path": "Source/Exercises/Binary Patching/BinaryPatchingVC.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "IB-01",
+      "app": "ibugbazaar",
+      "title": "Auth token in UserDefaults",
+      "expect": "present",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": "vulnios_prod/Login/Loginscreen.swift",
+      "reason": null,
+      "locations": [
+        "vulnios_prod/Login/Loginscreen.swift:159",
+        "vulnios_prod/Login/Loginscreen.swift:160"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IB-02",
+      "app": "ibugbazaar",
+      "title": "MD5 and SHA-1 calls",
+      "expect": "present",
+      "rule": "IOS-WEAK-CRYPTO",
+      "path": "vulnios_prod/Other/Vulnerable functions.swift",
+      "reason": null,
+      "locations": [
+        "vulnios_prod/Other/Vulnerable functions.swift:43",
+        "vulnios_prod/Other/Vulnerable functions.swift:53"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IB-03",
+      "app": "ibugbazaar",
+      "title": "Declared URL scheme",
+      "expect": "inventory",
+      "rule": null,
+      "path": "vulnios-prod-Info.plist",
+      "reason": null,
+      "locations": [
+        "vulnios-prod-Info.plist"
+      ],
+      "status": "recorded"
+    },
+    {
+      "id": "IB-04",
+      "app": "ibugbazaar",
+      "title": "Fixed literal in local login comparison",
+      "expect": "present",
+      "rule": "MOBILE-AUTH-LITERAL-CHECK",
+      "path": "vulnios_prod/Login/checklogin.swift",
+      "reason": null,
+      "locations": [
+        "vulnios_prod/Login/checklogin.swift:21"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IB-05",
+      "app": "ibugbazaar",
+      "title": "Card verification code in UserDefaults",
+      "expect": "present",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": "vulnios_prod/NsUserdefault/Userdefault.swift",
+      "reason": null,
+      "locations": [
+        "vulnios_prod/NsUserdefault/Userdefault.swift:78",
+        "vulnios_prod/NsUserdefault/Userdefault.swift:80"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IB-08",
+      "app": "ibugbazaar",
+      "title": "Ordinary name preference is not a sensitive-storage lead",
+      "expect": "absent",
+      "rule": "IOS-USERDEFAULTS-SENSITIVE",
+      "path": "vulnios_prod/NsUserdefault/Userdefault.swift",
+      "reason": null,
+      "locations": [],
+      "status": "clear"
+    },
+    {
+      "id": "IB-06",
+      "app": "ibugbazaar",
+      "title": "Secret embedded in plist value",
+      "expect": "present",
+      "rule": "MOBILE-HARDCODED-SECRET",
+      "path": "vulnios-prod-Info.plist",
+      "reason": null,
+      "locations": [
+        "vulnios-prod-Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "IB-07",
+      "app": "ibugbazaar",
+      "title": "Deep-link file access",
+      "expect": "manual",
+      "rule": null,
+      "path": "vulnios_prod/Deeplink/Link_file_theft.swift",
+      "reason": "Reachability, file choice, and authorization require a controlled link test.",
+      "locations": [],
+      "status": "manual_pending"
+    },
+    {
+      "id": "DF-01",
+      "app": "dvfa",
+      "title": "PIN in Flutter preferences",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-PREFS-SENSITIVE",
+      "path": "lib/login_screen.dart",
+      "reason": null,
+      "locations": [
+        "lib/login_screen.dart:46"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DF-02",
+      "app": "dvfa",
+      "title": "HTTP balance request URL",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-CLEARTEXT-URL",
+      "path": "lib/dashboard_screen.dart",
+      "reason": null,
+      "locations": [
+        "lib/dashboard_screen.dart:29"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DF-03",
+      "app": "dvfa",
+      "title": "Fixed statement encryption key",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-STATIC-CRYPTO-KEY",
+      "path": "lib/dashboard_screen.dart",
+      "reason": null,
+      "locations": [
+        "lib/dashboard_screen.dart:58"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DF-04",
+      "app": "dvfa",
+      "title": "PIN interpolated into a log",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-SENSITIVE-LOG",
+      "path": "lib/login_screen.dart",
+      "reason": null,
+      "locations": [
+        "lib/login_screen.dart:36"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DF-05",
+      "app": "dvfa",
+      "title": "Deep link starts a transfer",
+      "expect": "manual",
+      "rule": null,
+      "path": "lib/main.dart",
+      "reason": "Determine whether the link can cause an unauthorized transfer on a device.",
+      "locations": [],
+      "status": "manual_pending"
+    },
+    {
+      "id": "DF-06",
+      "app": "dvfa",
+      "title": "Sensitive data in background screenshot",
+      "expect": "manual",
+      "rule": null,
+      "path": null,
+      "reason": "The upstream solution describes a lifecycle omission; source patterns alone cannot confirm the OS snapshot.",
+      "locations": [],
+      "status": "manual_pending"
+    },
+    {
+      "id": "DM-01",
+      "app": "dvma",
+      "title": "Global ATS exception",
+      "expect": "present",
+      "rule": "IOS-ATS-GLOBAL",
+      "path": "ios/Runner/Info.plist",
+      "reason": null,
+      "locations": [
+        "ios/Runner/Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DM-02",
+      "app": "dvma",
+      "title": "Documents exposed to file sharing",
+      "expect": "present",
+      "rule": "IOS-FILE-SHARING",
+      "path": "ios/Runner/Info.plist",
+      "reason": null,
+      "locations": [
+        "ios/Runner/Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DM-03",
+      "app": "dvma",
+      "title": "Fixed AES key",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-STATIC-CRYPTO-KEY",
+      "path": "lib/modules/crypto/hardcoded_keys_ivs/hardcoded_crypto.dart",
+      "reason": null,
+      "locations": [
+        "lib/modules/crypto/hardcoded_keys_ivs/hardcoded_crypto.dart:17"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DM-04",
+      "app": "dvma",
+      "title": "Token and personal data in preferences",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-PREFS-SENSITIVE",
+      "path": "lib/modules/storage/insecure_local_storage/insecure_storage.dart",
+      "reason": null,
+      "locations": [
+        "lib/modules/storage/insecure_local_storage/insecure_storage.dart:29",
+        "lib/modules/storage/insecure_local_storage/insecure_storage.dart:30",
+        "lib/modules/storage/insecure_local_storage/insecure_storage.dart:31"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DM-05",
+      "app": "dvma",
+      "title": "AES ECB use",
+      "expect": "present",
+      "rule": "MOBILE-FLUTTER-WEAK-CRYPTO",
+      "path": "lib/modules/crypto/weak_algorithms/weak_crypto.dart",
+      "reason": "Rule gap tracked by this benchmark; static key detection is separate.",
+      "locations": [
+        "lib/modules/crypto/weak_algorithms/weak_crypto.dart:36"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "DM-06",
+      "app": "dvma",
+      "title": "WebView mixed-content behavior",
+      "expect": "manual",
+      "rule": null,
+      "path": "lib/modules/network/insecure_webview_networking/insecure_webview_networking_screen.dart",
+      "reason": "Needs a live WebView and controlled network observation.",
+      "locations": [],
+      "status": "manual_pending"
+    },
+    {
+      "id": "OV-01",
+      "app": "ovia",
+      "title": "Enabled iTunes file sharing",
+      "expect": "present",
+      "rule": "IOS-FILE-SHARING",
+      "path": "Info.plist",
+      "reason": null,
+      "locations": [
+        "Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "OV-02",
+      "app": "ovia",
+      "title": "Global ATS exception",
+      "expect": "present",
+      "rule": "IOS-ATS-GLOBAL",
+      "path": "Info.plist",
+      "reason": null,
+      "locations": [
+        "Info.plist"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "OV-03",
+      "app": "ovia",
+      "title": "Hardcoded AES key",
+      "expect": "present",
+      "rule": "IOS-STATIC-CRYPTO-KEY",
+      "path": "Utils/Crypto.swift",
+      "reason": null,
+      "locations": [
+        "Utils/Crypto.swift:4"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "OV-03-IV",
+      "app": "ovia",
+      "title": "Fixed AES initialization vector",
+      "expect": "present",
+      "rule": "IOS-STATIC-CRYPTO-IV",
+      "path": "Utils/Crypto.swift",
+      "reason": null,
+      "locations": [
+        "Utils/Crypto.swift:5"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "OV-04",
+      "app": "ovia",
+      "title": "HTTP authentication endpoint",
+      "expect": "present",
+      "rule": "IOS-CLEARTEXT-URL",
+      "path": "Network/NetworkCalls.swift",
+      "reason": null,
+      "locations": [
+        "Network/NetworkCalls.swift:3"
+      ],
+      "status": "detected"
+    },
+    {
+      "id": "OV-05",
+      "app": "ovia",
+      "title": "Declared URL scheme",
+      "expect": "inventory",
+      "rule": null,
+      "path": "Info.plist",
+      "reason": null,
+      "locations": [
+        "Info.plist"
+      ],
+      "status": "recorded"
+    },
+    {
+      "id": "OV-06",
+      "app": "ovia",
+      "title": "Session theft through the incoming link",
+      "expect": "manual",
+      "rule": null,
+      "path": "Controller/Main/MainViewController.swift",
+      "reason": "A controlled device test must trace the link to the WebView and session use.",
+      "locations": [],
+      "status": "manual_pending"
+    },
+    {
+      "id": "OV-07",
+      "app": "ovia",
+      "title": "File overwrite through the incoming link",
+      "expect": "manual",
+      "rule": null,
+      "path": "Controller/Main/MainViewController.swift",
+      "reason": "A controlled device test must check input reachability, file choice, and sandbox effects.",
+      "locations": [],
+      "status": "manual_pending"
+    }
+  ],
+  "summary": {
+    "selected_positive_detected": 28,
+    "selected_positive_total": 28,
+    "negative_controls_clear": 17,
+    "negative_controls_total": 17,
+    "inventory_recorded": 2,
+    "manual_pending": 7,
+    "skipped": 0,
+    "missed": 0,
+    "false_alarms": 0
+  }
+}

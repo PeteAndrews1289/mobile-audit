@@ -1,0 +1,293 @@
+{
+  "schema_version": "watch-1.0",
+  "tool": {
+    "name": "mobile-audit",
+    "version": "0.6.0"
+  },
+  "generated_at": "2026-10-10T22:40:47.504424Z",
+  "target": {
+    "platform": "ios",
+    "identifier": "org.example.attackpaths",
+    "name": "Synthetic Attack Paths",
+    "version": "1.0"
+  },
+  "current": {
+    "canonical_report_sha256": "f73873d30a3647eaaeede1c5c3b093daf2a0191a3c7a5f828cd6fa77a54473bd",
+    "generated_at": "2026-10-10T22:40:47.500126Z",
+    "version": "1.0"
+  },
+  "previous": null,
+  "alerts": [],
+  "omitted_alert_count": 0,
+  "candidate_triage": [
+    {
+      "id": "candidate-6c27c2474f6a2b84",
+      "lead_id": "lead-38dae907bc08b5d3",
+      "title": "Trace cleartext request through ATS exception",
+      "priority": "medium",
+      "stage": "multiple_clues_no_path_verified",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "More than one clue points to a testable path; no data flow or security impact has been demonstrated.",
+      "evidence_ids": [
+        "evidence-2e5f7109ae1ac793",
+        "evidence-b385a175135176ef"
+      ],
+      "missing_steps": [
+        "Verify the missing connection: No evidence shows the URL is requested at runtime, uses the exception, or carries sensitive data.",
+        "Reproduce a security impact under controlled conditions.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the constructed HTTP URL is used for sensitive traffic under the global ATS exception, someone on the network path could read or alter that traffic. No runtime request or sensitive payload has been observed."
+    },
+    {
+      "id": "candidate-d0389023a871662e",
+      "lead_id": "lead-43f509496c027414",
+      "title": "Trace external links into web code",
+      "priority": "medium",
+      "stage": "multiple_clues_no_path_verified",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "More than one clue points to a testable path; no data flow or security impact has been demonstrated.",
+      "evidence_ids": [
+        "evidence-a1c81097bc57dc5e",
+        "evidence-a63658398197d144"
+      ],
+      "missing_steps": [
+        "Verify the missing connection: No path from a link parameter to the bundled web-code sink has been verified.",
+        "Reproduce a security impact under controlled conditions.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a link parameter flows into the bundled dynamic-code or HTML-writing call, a link sender could influence WebView content. The two clues coexist, but no data flow has been traced."
+    },
+    {
+      "id": "candidate-03600225e3f4136a",
+      "lead_id": "lead-d47e5ab818decc26",
+      "title": "Trace external links through account checks",
+      "priority": "medium",
+      "stage": "multiple_clues_no_path_verified",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "More than one clue points to a testable path; no data flow or security impact has been demonstrated.",
+      "evidence_ids": [
+        "evidence-a1c81097bc57dc5e",
+        "evidence-bdbdb01ea1bf21e8"
+      ],
+      "missing_steps": [
+        "Verify the missing connection: No path from the link handler to this comparison or a protected action has been verified.",
+        "Reproduce a security impact under controlled conditions.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a link reaches a protected action and the app relies on a fixed client-side comparison without a server authorization check, its sender could request an action outside the current account's rights. No such path has been traced."
+    },
+    {
+      "id": "candidate-e48cfb98b011f4c0",
+      "lead_id": "lead-6449a3599c861a43",
+      "title": "Trace imported documents into a deserializer",
+      "priority": "medium",
+      "stage": "multiple_clues_no_path_verified",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "More than one clue points to a testable path; no data flow or security impact has been demonstrated.",
+      "evidence_ids": [
+        "evidence-3e971f91c9755a7b",
+        "evidence-a04e9a4234f3488a"
+      ],
+      "missing_steps": [
+        "Verify the missing connection: No path from the declared document import to the referenced deserializer has been verified.",
+        "Reproduce a security impact under controlled conditions.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If an imported document reaches the deserializer without validation, its sender could trigger unintended parsing behavior when the app opens it. The two clues coexist, but no data flow has been traced."
+    },
+    {
+      "id": "candidate-92ace451f4d40352",
+      "lead_id": "lead-918842bf9432b0c4",
+      "title": "Trace web content into the native bridge",
+      "priority": "medium",
+      "stage": "multiple_clues_no_path_verified",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "More than one clue points to a testable path; no data flow or security impact has been demonstrated.",
+      "evidence_ids": [
+        "evidence-4d972773758b5ed4",
+        "evidence-a63658398197d144"
+      ],
+      "missing_steps": [
+        "Verify the missing connection: No evidence shows the web sink and native bridge run in the same WebView or that untrusted content can call a privileged bridge method.",
+        "Reproduce a security impact under controlled conditions.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If untrusted web content reaches a WebView with an exposed native bridge, its sender could invoke a privileged app method. The two code clues have not been linked to one WebView."
+    },
+    {
+      "id": "candidate-c7ebff3dfb6d4f6a",
+      "lead_id": "lead-a3b32c17642b5e71",
+      "title": "App Transport Security disabled globally",
+      "priority": "high",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-2e5f7109ae1ac793"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a reachable feature sends sensitive data over HTTP, someone able to observe or alter that network path could read or change the traffic. The report does not show that such a request occurs."
+    },
+    {
+      "id": "candidate-943275fb7a299499",
+      "lead_id": "lead-db1c28d743b73dfd",
+      "title": "Fixed literal in authentication-related comparison",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-bdbdb01ea1bf21e8"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If this comparison grants access based on a fixed value and no server check enforces authorization, someone able to submit that value could reach a protected action. The branch direction and server behavior are unknown."
+    },
+    {
+      "id": "candidate-ef26c2a7891ceea9",
+      "lead_id": "lead-aec2839d634befb0",
+      "title": "HTTP URL constructed in iOS source",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-b385a175135176ef"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app sends sensitive requests to this HTTP endpoint, someone on the network path could read or alter them. The scanner found a URL construction, not a completed request."
+    },
+    {
+      "id": "candidate-8511d232592869e7",
+      "lead_id": "lead-1ef5d1a8e64b417f",
+      "title": "Object deserialization",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-3e971f91c9755a7b"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If an app entry point passes untrusted serialized content to this API without safe type and structure checks, its sender could trigger unintended parsing behavior. The input path is unverified."
+    },
+    {
+      "id": "candidate-dc42a6eb9df11761",
+      "lead_id": "lead-92998d33ed454cbb",
+      "title": "Test custom url scheme: syntheticpaths",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-a1c81097bc57dc5e"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app acts on parameters from a custom link without checking the current account, a sender could use a link to request an unauthorized action. The handler behavior is untested."
+    },
+    {
+      "id": "candidate-87f5ee157c7f512e",
+      "lead_id": "lead-3a199cfe7f8c8c8d",
+      "title": "Test document type: public.json",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-a04e9a4234f3488a"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If the app imports a file supplied by another party and its parser mishandles that content, opening the file could trigger unintended behavior. No parser flaw is established by the declaration."
+    },
+    {
+      "id": "candidate-a2af67e291e8c126",
+      "lead_id": "lead-63ec488f56f66452",
+      "title": "WebView native bridge",
+      "priority": "medium",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-4d972773758b5ed4"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If untrusted WebView content can call a privileged native bridge method, a content sender could ask the app to perform that method's action. Allowed origins and bridge permissions are unknown."
+    },
+    {
+      "id": "candidate-0f87b10e121dc4b9",
+      "lead_id": "lead-63c93f736dfd1005",
+      "title": "Dynamic JavaScript execution needs input review",
+      "priority": "low",
+      "stage": "test_lead_only",
+      "cve_readiness": "not_demonstrated",
+      "novelty": "unassessed",
+      "rationale": "A code, package, or guided-test clue suggests a question to test; exploitability is unknown.",
+      "evidence_ids": [
+        "evidence-a63658398197d144"
+      ],
+      "missing_steps": [
+        "Confirm the feature is reachable in the shipped app.",
+        "Test controlled input and document any security impact.",
+        "Identify affected versions and check prior advisories."
+      ],
+      "attack_scenario": "If a link, message, or response controls the string passed to dynamic JavaScript execution, its sender could run script in that WebView context. No input-to-sink path has been shown."
+    }
+  ],
+  "omitted_candidate_count": 0,
+  "comparison": {
+    "newly_observed_lead_count": 0,
+    "no_longer_observed_lead_count": 0,
+    "previous_input_kinds": [],
+    "current_input_kinds": [
+      "dependency_inventory",
+      "researcher_supplied_binary",
+      "static_scan"
+    ]
+  },
+  "notes": [
+    "Alerts are changes in evidence between two researcher-supplied snapshots, not intrusion detections.",
+    "App Privacy Report describes a rolling seven-day window; newly observed domains do not prove malicious activity.",
+    "A lead no longer observed is not a verified fix, especially when scan coverage or app version changed.",
+    "Candidate triage ranks missing research steps; it does not estimate CVE probability or assign an ID."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mobile-audit:ai-response:1.0",
+  "title": "Mobile Audit evidence-cited AI review response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "hypotheses"],
+  "properties": {
+    "format": {"const": "mobile-audit-ai-response-1.0"},
+    "hypotheses": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["hypothesis", "priority", "priority_reason", "supporting_evidence_ids", "attacker_control", "possible_impact", "test_plan", "disconfirming_result", "missing_evidence", "confidence"],
+        "properties": {
+          "hypothesis": {"type": "string", "minLength": 1, "maxLength": 180},
+          "priority": {"enum": ["high", "medium", "low"]},
+          "priority_reason": {"type": "string", "minLength": 1, "maxLength": 700},
+          "supporting_evidence_ids": {"type": "array", "minItems": 1, "maxItems": 20, "items": {"type": "string", "minLength": 1}},
+          "attacker_control": {"type": "string", "minLength": 1, "maxLength": 400},
+          "attack_scenario": {"type": "string", "minLength": 1, "maxLength": 1000},
+          "possible_impact": {"type": "string", "minLength": 1, "maxLength": 700},
+          "test_plan": {"type": "string", "minLength": 1, "maxLength": 1000},
+          "disconfirming_result": {"type": "string", "minLength": 1, "maxLength": 700},
+          "missing_evidence": {"type": "string", "minLength": 1, "maxLength": 700},
+          "confidence": {"enum": ["high", "medium", "low"]}
+        }
+      }
+    }
+  }
+}

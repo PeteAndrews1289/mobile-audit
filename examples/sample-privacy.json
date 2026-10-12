@@ -1,0 +1,167 @@
+{
+  "schema_version": "2.0",
+  "tool": {
+    "name": "mobile-audit",
+    "version": "0.2.0"
+  },
+  "generated_at": "2026-10-10T01:35:11.040836Z",
+  "mode": "app_privacy_report",
+  "target": {
+    "platform": "ios",
+    "identifier": "com.example.maps",
+    "name": null,
+    "version": null
+  },
+  "environment": {
+    "os_version": null,
+    "device_class": null,
+    "region": null,
+    "permissions": null
+  },
+  "sessions": [],
+  "artifacts": [
+    {
+      "id": "artifact-2938c8647b901791",
+      "kind": "apple_app_privacy_report",
+      "collection_method": "user_export_from_ios_settings",
+      "source_name": "App Privacy Report export",
+      "sha256": "cd3a57a75e251e565bde7b70fe83d6409b6ce1b9e1bd1f5546b36e88ca456e32",
+      "sensitivity": "device_activity",
+      "raw_retained": false,
+      "created_at": null
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-e57ec43e898079a7",
+      "kind": "resource_access",
+      "observed_at": "2026-10-01T12:00:00.000000Z",
+      "details": {
+        "category": "location",
+        "started_at": "2026-10-01T12:00:00.000000Z",
+        "ended_at": "2026-10-01T12:01:00.000000Z",
+        "interval_status": "complete"
+      },
+      "session_id": null,
+      "provenance": {
+        "artifact_id": "artifact-2938c8647b901791",
+        "locator": {
+          "line_numbers": [
+            1,
+            3
+          ]
+        },
+        "collector": "apple_app_privacy_report"
+      }
+    },
+    {
+      "id": "obs-b0b0ae224eac8b15",
+      "kind": "network_contact",
+      "observed_at": "2026-10-01T12:03:00.000000Z",
+      "details": {
+        "domain": "api.example.test",
+        "first_seen_at": "2026-10-01T12:00:30.000000Z",
+        "last_seen_at": "2026-10-01T12:03:00.000000Z",
+        "reported_contacts": 3,
+        "initiated_type": "AppInitiated",
+        "domain_type": 2,
+        "domain_owner": "Example Inc"
+      },
+      "session_id": null,
+      "provenance": {
+        "artifact_id": "artifact-2938c8647b901791",
+        "locator": {
+          "line_numbers": [
+            4
+          ]
+        },
+        "collector": "apple_app_privacy_report"
+      }
+    },
+    {
+      "id": "obs-13a855fa273d8af8",
+      "kind": "resource_access",
+      "observed_at": "2026-10-01T12:04:00.000000Z",
+      "details": {
+        "category": "microphone",
+        "started_at": "2026-10-01T12:04:00.000000Z",
+        "ended_at": null,
+        "interval_status": "incomplete"
+      },
+      "session_id": null,
+      "provenance": {
+        "artifact_id": "artifact-2938c8647b901791",
+        "locator": {
+          "line_numbers": [
+            5
+          ]
+        },
+        "collector": "apple_app_privacy_report"
+      }
+    },
+    {
+      "id": "obs-7df556085d81a6de",
+      "kind": "network_contact",
+      "observed_at": "2026-10-01T12:07:00.000000Z",
+      "details": {
+        "domain": "analytics.example.test",
+        "first_seen_at": "2026-10-01T12:06:00.000000Z",
+        "last_seen_at": "2026-10-01T12:07:00.000000Z",
+        "reported_contacts": 2,
+        "initiated_type": "NonAppInitiated",
+        "domain_type": 1,
+        "domain_owner": null
+      },
+      "session_id": null,
+      "provenance": {
+        "artifact_id": "artifact-2938c8647b901791",
+        "locator": {
+          "line_numbers": [
+            7
+          ]
+        },
+        "collector": "apple_app_privacy_report"
+      }
+    }
+  ],
+  "test_results": [],
+  "findings": [],
+  "coverage": [
+    {
+      "area": "resource_access",
+      "status": "observed",
+      "detail": "Imported app-attributed access intervals from the Apple export; absence of an event is not proof that access never occurred."
+    },
+    {
+      "area": "network_domains",
+      "status": "observed",
+      "detail": "Imported domains and Apple's aggregate contact counts for the selected app."
+    },
+    {
+      "area": "network_request_contents",
+      "status": "unavailable",
+      "detail": "The Apple export does not include request bodies, response bodies, or transmitted data."
+    },
+    {
+      "area": "app_private_storage",
+      "status": "unavailable",
+      "detail": "The Apple export does not expose the app's private files or database."
+    },
+    {
+      "area": "source_and_binary",
+      "status": "unavailable",
+      "detail": "No source project or usable app binary was supplied for this import."
+    },
+    {
+      "area": "vulnerability_exploitation",
+      "status": "unavailable",
+      "detail": "This import performs no active security tests or exploitation attempts."
+    }
+  ],
+  "notes": [
+    "This report contains observations, not vulnerability findings. A domain contact does not establish what data was sent or which library initiated it.",
+    "Apple's network contact counts cover its reporting period; they are not per-action measurements.",
+    "The export's website context and activity from other apps are omitted from this report.",
+    "1 resource-access interval(s) were incomplete in the export."
+  ]
+}
