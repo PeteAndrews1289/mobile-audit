@@ -176,7 +176,8 @@ def _markdown(result: dict[str, object]) -> str:
     for case in cases:
         wanted = str(case.get("rule") or case.get("title"))
         location = ", ".join(case["locations"][:2]) if case["locations"] else str(case.get("path") or "—")
-        lines.append(f"| {case['id']} | {case['app']} | {wanted} | {case['status']} | {location.replace('|', '\\|')} |")
+        escaped_location = location.replace("|", "\\|")
+        lines.append(f"| {case['id']} | {case['app']} | {wanted} | {case['status']} | {escaped_location} |")
     lines.extend(["", "A `missed` case is a known scanner gap at that source path. `manual_pending` cases require a signed device or controlled environment. Unreviewed findings are not counted as true or false positives. Upstream source must match the pinned commit in `baselines/benchmark.json`.", ""])
     return "\n".join(lines)
 
