@@ -1,0 +1,7 @@
+{"type":"access","accessor":{"identifier":"com.example.maps","identifierType":"bundleID"},"category":"location","identifier":"interval-1","kind":"intervalEnd","timeStamp":"2026-10-01T12:01:00Z"}
+{"type":"networkActivity","bundleID":"com.other.bank","domain":"private.bank.example","firstTimeStamp":"2026-10-01T12:00:00Z","timeStamp":"2026-10-01T12:02:00Z","hits":7,"context":"private-account-page"}
+{"type":"access","accessor":{"identifier":"com.example.maps","identifierType":"bundleID"},"category":"location","identifier":"interval-1","kind":"intervalBegin","timeStamp":"2026-10-01T12:00:00Z"}
+{"type":"networkActivity","bundleID":"com.example.maps","domain":"api.example.test","firstTimeStamp":"2026-10-01T12:00:30Z","timeStamp":"2026-10-01T12:03:00Z","hits":3,"domainType":2,"initiatedType":"AppInitiated","domainOwner":"Example Inc","context":"https://example.test/private/account","domainClassification":1,"contextVerificationType":0}
+{"type":"access","accessor":{"identifier":"com.example.maps","identifierType":"bundleID"},"category":"microphone","identifier":"interval-2","kind":"intervalBegin","timeStamp":"2026-10-01T12:04:00Z"}
+{"type":"access","accessor":{"identifier":"com.other.bank","identifierType":"bundleID"},"category":"contacts","identifier":"interval-3","kind":"intervalBegin","timeStamp":"2026-10-01T12:05:00Z"}
+{"type":"networkActivity","bundleID":"com.example.maps","domain":"analytics.example.test","firstTimeStamp":"2026-10-01T12:06:00Z","timeStamp":"2026-10-01T12:07:00Z","hits":2,"domainType":1,"initiatedType":"NonAppInitiated"}

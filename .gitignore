@@ -21,3 +21,4 @@ htmlcov/
 *.p12
 *.pem
 App_Privacy_Report*.ndjson
+!tests/fixtures/app_privacy_report.ndjson
